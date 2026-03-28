@@ -1,0 +1,480 @@
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+
+<style>
+
+.pixpa-gallery-grid,
+.pixpa-pgallery,
+.pixpa-gallery,
+.pix-gallery,
+.pg-gallery,
+.pixpa-page-gallery,
+.pixpa-gallery-wrap,
+.pixpa-section-gallery,
+[class*="gallery-grid"],
+[class*="galleryGrid"],
+[class*="pgallery"],
+[class*="page-gallery"],
+[class*="GalleryGrid"],
+[class*="GalleryWrap"],
+[class*="gallery-wrap"],
+[class*="gallery-section"],
+[class*="gallery-container"],
+[class*="GallerySection"],
+[data-gallery],
+[data-page-gallery] {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+#ilp-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 5rem 4rem 0;
+  overflow: hidden;
+  background: #04040C;
+}
+
+#ilp-content {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0 4rem;
+  align-items: end;
+  margin-bottom: 2rem;
+}
+
+#ilp-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: #00AAFF;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1.2rem;
+  animation: ilpFadeUp 0.7s 0.2s both;
+  white-space: nowrap;
+  grid-column: 1 / -1;
+}
+
+#ilp-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.8rem, 5vw, 6rem);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  margin-bottom: 0;
+  animation: ilpFadeUp 0.7s 0.4s both;
+  grid-column: 1;
+  grid-row: 2;
+  align-self: end;
+  white-space: nowrap;
+}
+
+#ilp-statement {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(240,244,255,0.65);
+  line-height: 1.8;
+  animation: ilpFadeUp 0.7s 0.7s both;
+  grid-column: 2;
+  grid-row: 2;
+  align-self: end;
+  padding-bottom: 0.5rem;
+  margin: 0;
+}
+#ilp-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0; display: block;
+  pointer-events: none;
+}
+
+/* Light shafts */
+#ilp-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 35%; width: 1px; height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(123,47,255,0.3), transparent);
+  z-index: 1; pointer-events: none;
+}
+#ilp-hero::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 28%; width: 1px; height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(0,170,255,0.2), transparent);
+  z-index: 1; pointer-events: none;
+}
+
+/* Horizontal photo train */
+#ilp-photos {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+#ilp-train {
+  display: flex;
+  gap: 16px;
+  padding: 0 16px;
+}
+.ilp-photo {
+  flex-shrink: 0;
+  width: 420px;
+  height: 340px;
+  overflow: hidden;
+  opacity: 0;
+  mix-blend-mode: luminosity;
+  transition: opacity 1.5s ease;
+}
+.ilp-photo.loaded { opacity: 0.55; }
+.ilp-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.7) brightness(1.2);
+}
+.ilp-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(0,170,255,0.2);
+  pointer-events: none;
+}
+
+/* Vignette — just edges of photo train */
+#ilp-vignette {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 280px;
+  z-index: 4;
+  pointer-events: none;
+  background:
+    linear-gradient(to right, rgba(4,4,12,0.85) 0%, transparent 12%),
+    linear-gradient(to left,  rgba(4,4,12,0.85) 0%, transparent 12%),
+    linear-gradient(to top,   rgba(4,4,12,0.7)  0%, transparent 40%);
+}
+
+#ilp-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: #00AAFF;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1.5rem;
+  animation: ilpFadeUp 0.7s 0.2s both;
+  white-space: nowrap;
+}
+#ilp-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 8vw, 9rem);
+  line-height: 0.85;
+  letter-spacing: 0.02em;
+  margin-bottom: 0;
+  animation: ilpFadeUp 0.7s 0.4s both;
+}
+#ilp-line1 {
+  display: inline;
+  background: linear-gradient(90deg, #F0F4FF 0%, #00AAFF 60%, #7B2FFF 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+#ilp-line2 {
+  display: inline;
+  background: linear-gradient(90deg, #7B2FFF 0%, #B44FFF 60%, #39FF14 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+#ilp-statement {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(240,244,255,0.65);
+  line-height: 1.75;
+  max-width: 580px;
+  margin: 1.8rem 0 2.5rem;
+  animation: ilpFadeUp 0.7s 0.7s both;
+}
+#ilp-statement strong {
+  color: #F0F4FF;
+  font-style: normal;
+  font-weight: 300;
+}
+#ilp-scroll {
+  position: absolute;
+  bottom: 1rem; right: 4rem;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: ilpFadeUp 0.7s 1s both;
+}
+#ilp-scroll span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.25em;
+  color: rgba(0,170,255,0.45);
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+#ilp-scroll-line {
+  width: 1px; height: 60px;
+  background: linear-gradient(to bottom, #00AAFF, transparent);
+  animation: ilpScrollPulse 2s infinite;
+}
+
+@keyframes ilpFadeUp {
+  from { opacity: 0; transform: translateY(35px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes ilpScrollPulse {
+  0%   { transform: scaleY(1);   opacity: 1; transform-origin: top; }
+  100% { transform: scaleY(0.2); opacity: 0; transform-origin: top; }
+}
+@media(max-width: 768px) {
+  #ilp-hero { padding: 3rem 1.5rem 0; }
+  #ilp-content { grid-template-columns: 1fr; }
+  #ilp-eyebrow { font-size: 0.55rem; white-space: normal; }
+  #ilp-statement { grid-column: 1; grid-row: 3; }
+  #ilp-line2 { margin-left: 0; }
+  #ilp-photos { height: 200px; }
+}
+</style>
+
+<div id="ilp-hero">
+  <canvas id="ilp-canvas"></canvas>
+
+  <!-- Horizontal photo train -->
+  <div id="ilp-photos">
+    <div id="ilp-train"></div>
+    <div id="ilp-vignette"></div>
+  </div>
+
+  <div id="ilp-content">
+    <span id="ilp-eyebrow">Immersive Experience Designer · Systems Translator · Photon Wrangler</span>
+    <h1 id="ilp-name">
+      <span id="ilp-line1">GENELL</span><span id="ilp-line2">&nbsp;ZUCIYA</span>
+    </h1>
+    <p id="ilp-statement">
+      I design what lives <strong>in between.</strong> Between science and wonder,<br/>
+      between people and systems, between a photon leaving its source<br/>
+      and the moment it becomes <strong>part of an orchestrated story and built world.</strong>
+    </p>
+  </div>
+
+  <div id="ilp-scroll">
+    <div id="ilp-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</div>
+
+<script>
+(function(){
+
+  /* ── PHOTO TRAIN ── */
+  var PHOTOS = [
+    'https://px-web-images9.pixpa.com/H3PHrqNMfNBq-CMAF9KLXbMyA8vqWc3Ct8waoVShogI/rs:fit:1500:0/q:80/czM6Ly9waXhwYS10ZXN0L2NvbS9sYXJnZS85OTQ2MS8xNjA3OTIwMTQ1LTU5Mjk4NS1yYXZlbnMtcm9vZjEtMi5qcGVn',
+    'https://px-web-images1.pixpa.com/v_WW86kA3GsVNMQ7hxBdsc6j4OevpURTr6Zg_ywa4vU/rs:fit:1500:0/q:80/czM6Ly9waXhwYS10ZXN0L2NvbS9sYXJnZS85OTQ2MS8xNzI4OTU5NzAzLTkxNjI2MS02NmZiMWM4MWNmYmNkZGZmZDU4NmNhMzQta3R4LWFubm91bmNlLWNhbXBhaWduLXZlbi1hcnR1cm9vbG1vcy5qcGVn',
+    'https://px-web-images4.pixpa.com/fPtHBqRNgwupDLGN41cwystN2IpLNiJan6Cc1PXgzFs/rs:fit:1500:0/q:80/czM6Ly9waXhwYS10ZXN0L2NvbS9sYXJnZS85OTQ2MS8xNjA3OTIwMTI0LTU2MzY5My1pbWctMjY4NC5qcGc=',
+    'https://px-web-images2.pixpa.com/I7imUdH4VL0HKIz-P1aIWYLr35WExsTqpEYniuV7prQ/rs:fit:1500:0/q:80/czM6Ly9waXhwYS10ZXN0L2NvbS9sYXJnZS85OTQ2MS8xNjA3OTIwMDk0LTg0MDE0My1ueS1qZXRzMi1hZXJpYWwtc2hvdHMtb2YtbmV3LWplcnNleS5qcGc=',
+    'https://px-web-images4.pixpa.com/UHQY-B9MVbSXfQUnsnQ7A1LaGoTErGD-uYaZoixmf0I/rs:fit:1500:0/q:80/czM6Ly9waXhwYS10ZXN0L2NvbS9sYXJnZS85OTQ2MS8xNjA3OTIwMDgzLTQ2MTM2Ny1nZW5lbGwtbmVvbi5qcGc='
+  ];
+
+  var train = document.getElementById('ilp-train');
+
+  // Build train — duplicate photos 3x so loop is seamless
+  var allPhotos = PHOTOS.concat(PHOTOS).concat(PHOTOS);
+  allPhotos.forEach(function(src){
+    var el  = document.createElement('div');
+    el.className = 'ilp-photo';
+    var img = document.createElement('img');
+    img.src = src;
+    img.onload = function(){ el.classList.add('loaded'); };
+    el.appendChild(img);
+    train.appendChild(el);
+  });
+
+  // Scroll the train slowly left — loop seamlessly
+  var trainX = 0;
+  var PHOTO_W = 420 + 16; // width + gap
+  var setW = PHOTOS.length * PHOTO_W;
+
+  function animateTrain(){
+    requestAnimationFrame(animateTrain);
+    trainX -= 0.4; // speed — lower = slower
+    if(Math.abs(trainX) >= setW) trainX = 0; // seamless loop
+    train.style.transform = 'translateX(' + trainX + 'px)';
+  }
+  animateTrain();
+
+  /* ── INTERFERENCE CANVAS ── */
+  var canvas = document.getElementById('ilp-canvas');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W, H, raf, dots = [];
+  var mouseStrength = 0, t = 0;
+  var WL = 62, SPEED = 1.2, STEP = 7, NDOTS = 160;
+  var mx = -999, my = -999, hasMouse = false;
+
+  function size(){
+    var h = canvas.parentElement;
+    W = canvas.width  = h ? h.offsetWidth  || window.innerWidth  : window.innerWidth;
+    H = canvas.height = h ? h.offsetHeight || window.innerHeight : window.innerHeight;
+  }
+
+  function wave(px, py, sx, sy, time){
+    var d = Math.sqrt((px-sx)*(px-sx)+(py-sy)*(py-sy));
+    var falloff = Math.max(0.2, 1 - d/(Math.max(W,H)*0.7));
+    return Math.sin(d/WL*Math.PI*2 - time) * falloff;
+  }
+
+  function initDots(){
+    dots = [];
+    for(var i=0;i<NDOTS;i++){
+      dots.push({
+        cx:W*(0.2+Math.random()*0.6), cy:H*(0.15+Math.random()*0.7),
+        angle:Math.random()*Math.PI*2,
+        r:15+Math.random()*Math.min(W,H)*0.36,
+        speed:(Math.random()>0.5?1:-1)*(0.003+Math.random()*0.005),
+        size:0.8+Math.random()*1.2,
+        phase:Math.random()*Math.PI*2
+      });
+    }
+  }
+
+  var hero = document.getElementById('ilp-hero');
+
+  function updateMouse(e){
+    var r = canvas.getBoundingClientRect();
+    mx = e.clientX - r.left;
+    my = e.clientY - r.top;
+    hasMouse = (mx >= 0 && mx <= W && my >= 0 && my <= H);
+  }
+
+  window.addEventListener('mousemove', updateMouse);
+  if(hero){
+    hero.addEventListener('mouseleave', function(){ hasMouse = false; });
+  }
+
+  function frame(){
+    raf = requestAnimationFrame(frame);
+    t += 0.006 * SPEED;
+    mouseStrength += ((hasMouse ? 1 : 0) - mouseStrength) * 0.04;
+
+    ctx.fillStyle = 'rgba(4,4,12,0.32)';
+    ctx.fillRect(0,0,W,H);
+
+    var s1 = {x:W*0.38, y:H*0.5}, s2 = {x:W*0.62, y:H*0.5};
+
+    for(var px=0; px<W; px+=STEP){
+      for(var py=0; py<H; py+=STEP){
+        var w1 = wave(px,py,s1.x,s1.y,t);
+        var w2 = wave(px,py,s2.x,s2.y,t);
+        var primary = (w1+w2)*0.5;
+        var secondary = 0;
+        if(mouseStrength > 0.01 && hasMouse){
+          secondary = wave(px,py,mx,my,t*1.15) * mouseStrength;
+        }
+        var total = primary*0.7 + secondary*0.5;
+        var intensity = total*total;
+        if(intensity < 0.1) continue;
+        var primI = primary*primary*0.7;
+        var secI  = secondary*secondary*mouseStrength;
+        var rr = Math.floor(120*primI + 0*secI);
+        var gg = Math.floor(30*primI  + 190*secI);
+        var bb = Math.floor(255*primI + 255*secI);
+        var aa = Math.min(0.55, intensity*0.38 + secI*0.25);
+        ctx.fillStyle = 'rgba('+rr+','+gg+','+bb+','+aa+')';
+        ctx.fillRect(px-STEP*0.5, py-STEP*0.5, STEP, STEP);
+      }
+    }
+
+    dots.forEach(function(d){
+      d.angle += d.speed;
+      var dpx = d.cx + Math.cos(d.angle)*d.r;
+      var dpy = d.cy + Math.sin(d.angle)*d.r*0.85;
+      if(dpx<0||dpx>W||dpy<0||dpy>H) return;
+      var dw1 = wave(dpx,dpy,s1.x,s1.y,t);
+      var dw2 = wave(dpx,dpy,s2.x,s2.y,t);
+      var sig = (dw1+dw2)*0.5;
+      if(sig < 0.25) return;
+      var mouseSig = mouseStrength>0.1 && hasMouse ? wave(dpx,dpy,mx,my,t*1.15)*mouseStrength : 0;
+      var isMouse = mouseSig > 0.4;
+      var brightness = 0.5 + sig*0.5;
+      var dotSize = d.size*(1+(isMouse?1.2:0));
+      ctx.beginPath(); ctx.arc(dpx,dpy,dotSize*5,0,Math.PI*2);
+      ctx.fillStyle = isMouse?'rgba(0,200,255,'+(brightness*0.09)+')':'rgba(57,255,20,'+(brightness*0.06)+')';
+      ctx.fill();
+      ctx.beginPath(); ctx.arc(dpx,dpy,dotSize,0,Math.PI*2);
+      ctx.fillStyle = isMouse?'rgba(0,230,255,'+brightness+')':'rgba(57,255,20,'+brightness+')';
+      ctx.fill();
+    });
+
+    if(hasMouse){
+      for(var ring=1;ring<=3;ring++){
+        var ringR = (ring*22)+((t*30*SPEED)%22);
+        var ringA = (1-ring/4)*0.25*mouseStrength;
+        ctx.beginPath(); ctx.arc(mx,my,ringR,0,Math.PI*2);
+        ctx.strokeStyle = 'rgba(0,200,255,'+ringA+')';
+        ctx.lineWidth=1; ctx.stroke();
+      }
+      ctx.beginPath(); ctx.arc(mx,my,3.5,0,Math.PI*2);
+      ctx.fillStyle='rgba(0,220,255,0.95)'; ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(mx-22,my); ctx.lineTo(mx-9,my);
+      ctx.moveTo(mx+9,my);  ctx.lineTo(mx+22,my);
+      ctx.moveTo(mx,my-22); ctx.lineTo(mx,my-9);
+      ctx.moveTo(mx,my+9);  ctx.lineTo(mx,my+22);
+      ctx.strokeStyle='rgba(0,190,255,0.45)'; ctx.lineWidth=0.8; ctx.stroke();
+    }
+  }
+
+  function boot(){
+    if(raf) cancelAnimationFrame(raf);
+    size(); initDots(); frame();
+  }
+
+  boot();
+  setTimeout(boot, 400);
+  setTimeout(boot, 900);
+  window.addEventListener('resize', boot);
+
+  /* Push hero below Pixpa nav so it never covers it */
+  function fixNavOverlap(){
+    var nav = document.querySelector('header') ||
+              document.querySelector('[class*="header"]') ||
+              document.querySelector('[class*="Header"]') ||
+              document.querySelector('nav');
+    var hero = document.getElementById('ilp-hero');
+    if(nav && hero){
+      var navH = nav.getBoundingClientRect().height;
+      if(navH > 0){
+        hero.style.marginTop = '0px';
+        /* Make canvas clip so it never bleeds up into nav */
+        var canvas = document.getElementById('ilp-canvas');
+        if(canvas) canvas.style.top = '0';
+      }
+    }
+  }
+  fixNavOverlap();
+  setTimeout(fixNavOverlap, 500);
+  setTimeout(fixNavOverlap, 1500);
+
+})();
+</script>

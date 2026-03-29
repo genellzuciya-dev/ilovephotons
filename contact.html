@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — Genell Zuciya</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#04040C;
+  --navy:#0A0A20;
+  --elec:#00AAFF;
+  --violet:#7B2FFF;
+  --purple:#B44FFF;
+  --green:#39FF14;
+  --white:#F0F4FF;
+  --muted:#6A6A9A;
+  --border:rgba(0,170,255,0.15);
+}
+html,body{height:100%;overflow:hidden}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:'Cormorant Garamond',serif;
+  cursor:none;
+}
+
+/* CURSOR */
+.cur{position:fixed;width:8px;height:8px;background:var(--elec);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);box-shadow:0 0 12px var(--elec);}
+.cur-ring{position:fixed;width:36px;height:36px;border:1px solid var(--violet);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);opacity:0.5;transition:all 0.08s;}
+
+/* CANVAS */
+canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block;pointer-events:none;}
+
+/* LAYOUT */
+.page{
+  position:relative;z-index:1;
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:6rem 5rem;
+  gap:6rem;
+  overflow-y:auto;
+  max-height:100vh;
+}
+
+/* LEFT */
+.left{}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.65rem;letter-spacing:0.3em;
+  color:var(--elec);text-transform:uppercase;
+  display:block;margin-bottom:2rem;
+}
+.headline{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3.5rem,7vw,7rem);
+  line-height:0.9;letter-spacing:0.02em;
+  margin-bottom:2rem;
+}
+.hl1{
+  display:block;
+  background:linear-gradient(90deg,#F0F4FF,#00AAFF,#7B2FFF);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hl2{
+  display:block;
+  background:linear-gradient(90deg,#7B2FFF,#B44FFF,#39FF14);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.tagline{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-weight:300;font-style:italic;
+  color:rgba(240,244,255,0.55);
+  line-height:1.8;max-width:380px;
+}
+.tagline strong{color:var(--white);font-style:normal;font-weight:300;}
+
+/* RIGHT — FORM */
+.form-wrap{
+  background:rgba(10,10,32,0.7);
+  border:1px solid var(--border);
+  padding:2.5rem;
+  backdrop-filter:blur(10px);
+}
+.form-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.6rem;letter-spacing:0.22em;
+  color:var(--elec);text-transform:uppercase;
+  display:block;margin-bottom:0.4rem;
+}
+.form-field{margin-bottom:1.2rem;}
+.form-input,.form-textarea,.form-select{
+  all:unset;display:block;width:100%;
+  background:rgba(0,170,255,0.04);
+  border:1px solid rgba(0,170,255,0.2);
+  color:var(--white);
+  font-family:'Cormorant Garamond',serif;font-size:1rem;
+  padding:0.75rem 1rem;box-sizing:border-box;
+  transition:border-color 0.2s;
+}
+.form-input:focus,.form-textarea:focus,.form-select:focus{
+  border-color:var(--elec);
+  outline:none;
+}
+.form-textarea{min-height:100px;resize:vertical;}
+.btn-submit{
+  all:unset;display:inline-block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.72rem;font-weight:400;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--black);
+  background:linear-gradient(90deg,var(--elec),var(--violet));
+  padding:1rem 2.5rem;cursor:pointer;
+  box-shadow:0 0 25px rgba(0,170,255,0.3);
+  transition:box-shadow 0.2s;
+  margin-top:0.5rem;
+}
+.btn-submit:hover{box-shadow:0 0 40px rgba(0,170,255,0.6);}
+
+@media(max-width:900px){
+  html,body{overflow:auto;}
+  .page{grid-template-columns:1fr;padding:3rem 1.5rem;gap:3rem;max-height:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="curRing"></div>
+<canvas id="ilp-canvas"></canvas>
+
+<div class="page">
+  <div class="left">
+    <span class="eyebrow">Let's work together</span>
+    <h1 class="headline">
+      <span class="hl1">LET'S</span>
+      <span class="hl2">CONNECT</span>
+    </h1>
+    <p class="tagline">
+      I design what lives <strong>in between.</strong> Between science and wonder,
+      between people and systems, between a photon leaving its source
+      and the moment it becomes <strong>part of an orchestrated story and built world.</strong>
+    </p>
+  </div>
+
+  <div class="right">
+    <div class="form-wrap">
+      <form action="https://formspree.io/f/xwvwlvkk" method="POST">
+        <div class="form-field">
+          <span class="form-label">Your Name</span>
+          <input name="name" class="form-input" type="text" placeholder="Your name" required/>
+        </div>
+        <div class="form-field">
+          <span class="form-label">Email</span>
+          <input name="email" class="form-input" type="email" placeholder="your@email.com" required/>
+        </div>
+        <div class="form-field">
+          <span class="form-label">I'm reaching out about</span>
+          <select name="interest" class="form-select">
+            <option value="">Select a project type…</option>
+            <option>Immersive Experience Design</option>
+            <option>Photonics & Optical Engineering</option>
+            <option>Creative Direction</option>
+            <option>Systems Thinking Consultation</option>
+            <option>Speaking or Workshop</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <span class="form-label">Tell me about your project</span>
+          <textarea name="message" class="form-textarea" placeholder="The best projects start with a bold question…" required></textarea>
+        </div>
+        <input type="hidden" name="_next" value="https://genellzuciya-dev.github.io/ilovephotons/thanks.html"/>
+        <button type="submit" class="btn-submit">Send It →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+/* CURSOR */
+var cur=document.getElementById('cur'),curRing=document.getElementById('curRing');
+var cx=0,cy=0,rx=0,ry=0;
+document.addEventListener('mousemove',function(e){cx=e.clientX;cy=e.clientY;cur.style.left=cx+'px';cur.style.top=cy+'px';});
+(function animRing(){rx+=(cx-rx)*.08;ry+=(cy-ry)*.08;curRing.style.left=rx+'px';curRing.style.top=ry+'px';requestAnimationFrame(animRing);})();
+document.querySelectorAll('a,button,input,textarea,select').forEach(function(el){
+  el.addEventListener('mouseenter',function(){cur.style.transform='translate(-50%,-50%) scale(2.5)';curRing.style.opacity='0';});
+  el.addEventListener('mouseleave',function(){cur.style.transform='translate(-50%,-50%) scale(1)';curRing.style.opacity='0.5';});
+});
+
+/* INTERFERENCE CANVAS */
+(function(){
+  var canvas=document.getElementById('ilp-canvas');
+  var ctx=canvas.getContext('2d');
+  var W,H,raf,dots=[];
+  var mouseStrength=0,t=0;
+  var WL=62,SPEED=1.2,STEP=7,NDOTS=160;
+  var mx=-999,my=-999,hasMouse=false;
+
+  function size(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+
+  function wave(px,py,sx,sy,time){
+    var d=Math.sqrt((px-sx)*(px-sx)+(py-sy)*(py-sy));
+    var falloff=Math.max(0.2,1-d/(Math.max(W,H)*0.7));
+    return Math.sin(d/WL*Math.PI*2-time)*falloff;
+  }
+
+  function initDots(){
+    dots=[];
+    for(var i=0;i<NDOTS;i++){
+      dots.push({
+        cx:W*(0.2+Math.random()*0.6),cy:H*(0.15+Math.random()*0.7),
+        angle:Math.random()*Math.PI*2,
+        r:15+Math.random()*Math.min(W,H)*0.36,
+        speed:(Math.random()>0.5?1:-1)*(0.003+Math.random()*0.005),
+        size:0.8+Math.random()*1.2,
+        phase:Math.random()*Math.PI*2
+      });
+    }
+  }
+
+  function updateMouse(e){
+    var r=canvas.getBoundingClientRect();
+    mx=e.clientX-r.left;my=e.clientY-r.top;
+    hasMouse=(mx>=0&&mx<=W&&my>=0&&my<=H);
+  }
+  window.addEventListener('mousemove',updateMouse);
+  document.addEventListener('mouseleave',function(){hasMouse=false;});
+
+  function frame(){
+    raf=requestAnimationFrame(frame);
+    t+=0.006*SPEED;
+    mouseStrength+=((hasMouse?1:0)-mouseStrength)*0.04;
+    ctx.fillStyle='rgba(4,4,12,0.32)';
+    ctx.fillRect(0,0,W,H);
+    var s1={x:W*0.38,y:H*0.5},s2={x:W*0.62,y:H*0.5};
+    for(var px=0;px<W;px+=STEP){
+      for(var py=0;py<H;py+=STEP){
+        var w1=wave(px,py,s1.x,s1.y,t);
+        var w2=wave(px,py,s2.x,s2.y,t);
+        var primary=(w1+w2)*0.5;
+        var secondary=0;
+        if(mouseStrength>0.01&&hasMouse) secondary=wave(px,py,mx,my,t*1.15)*mouseStrength;
+        var total=primary*0.7+secondary*0.5;
+        var intensity=total*total;
+        if(intensity<0.1) continue;
+        var primI=primary*primary*0.7;
+        var secI=secondary*secondary*mouseStrength;
+        var rr=Math.floor(120*primI+0*secI);
+        var gg=Math.floor(30*primI+190*secI);
+        var bb=Math.floor(255*primI+255*secI);
+        var aa=Math.min(0.55,intensity*0.38+secI*0.25);
+        ctx.fillStyle='rgba('+rr+','+gg+','+bb+','+aa+')';
+        ctx.fillRect(px-STEP*0.5,py-STEP*0.5,STEP,STEP);
+      }
+    }
+    dots.forEach(function(d){
+      d.angle+=d.speed;
+      var dpx=d.cx+Math.cos(d.angle)*d.r;
+      var dpy=d.cy+Math.sin(d.angle)*d.r*0.85;
+      if(dpx<0||dpx>W||dpy<0||dpy>H) return;
+      var dw1=wave(dpx,dpy,s1.x,s1.y,t);
+      var dw2=wave(dpx,dpy,s2.x,s2.y,t);
+      var sig=(dw1+dw2)*0.5;
+      if(sig<0.25) return;
+      var mouseSig=mouseStrength>0.1&&hasMouse?wave(dpx,dpy,mx,my,t*1.15)*mouseStrength:0;
+      var isMouse=mouseSig>0.4;
+      var brightness=0.5+sig*0.5;
+      var dotSize=d.size*(1+(isMouse?1.2:0));
+      ctx.beginPath();ctx.arc(dpx,dpy,dotSize*5,0,Math.PI*2);
+      ctx.fillStyle=isMouse?'rgba(0,200,255,'+(brightness*0.09)+')':'rgba(57,255,20,'+(brightness*0.06)+')';
+      ctx.fill();
+      ctx.beginPath();ctx.arc(dpx,dpy,dotSize,0,Math.PI*2);
+      ctx.fillStyle=isMouse?'rgba(0,230,255,'+brightness+')':'rgba(57,255,20,'+brightness+')';
+      ctx.fill();
+    });
+    if(hasMouse){
+      for(var ring=1;ring<=3;ring++){
+        var ringR=(ring*22)+((t*30*SPEED)%22);
+        var ringA=(1-ring/4)*0.25*mouseStrength;
+        ctx.beginPath();ctx.arc(mx,my,ringR,0,Math.PI*2);
+        ctx.strokeStyle='rgba(0,200,255,'+ringA+')';
+        ctx.lineWidth=1;ctx.stroke();
+      }
+      ctx.beginPath();ctx.arc(mx,my,3.5,0,Math.PI*2);
+      ctx.fillStyle='rgba(0,220,255,0.95)';ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(mx-22,my);ctx.lineTo(mx-9,my);
+      ctx.moveTo(mx+9,my);ctx.lineTo(mx+22,my);
+      ctx.moveTo(mx,my-22);ctx.lineTo(mx,my-9);
+      ctx.moveTo(mx,my+9);ctx.lineTo(mx,my+22);
+      ctx.strokeStyle='rgba(0,190,255,0.45)';ctx.lineWidth=0.8;ctx.stroke();
+    }
+  }
+
+  function boot(){if(raf)cancelAnimationFrame(raf);size();initDots();frame();}
+  boot();setTimeout(boot,400);setTimeout(boot,900);
+  window.addEventListener('resize',boot);
+})();
+</script>
+</body>
+</html>

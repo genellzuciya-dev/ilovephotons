@@ -1,480 +1,540 @@
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"/>
-
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Genell Zuciya · I Love Photons</title>
+<meta name="description" content="Genell Zuciya's work blends immersive experience design, biomimicry, SFX, and storytelling to create innovative, science-driven, and meaningful interactions.">
+<meta property="og:title" content="Genell Zuciya · I Love Photons">
+<meta property="og:description" content="Immersive Experience Designer · Systems Translator · Photon Wrangler">
+<meta property="og:image" content="https://www.ilovephotons.com/img/theta-stage.jpg">
+<meta name="theme-color" content="#0a0b17">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
+:root{
+  --bg:#0a0b17;--bg2:#10122a;--panel:#12142c;--line:rgba(190,210,255,.16);--line2:rgba(200,215,255,.3);
+  --film:linear-gradient(115deg,#36fdfc 0%,#6f8dff 16%,#b44fff 32%,#ef7afc 46%,#ffb38a 60%,#c8ff9e 74%,#36fdfc 88%,#6f8dff 100%);
+  --ink:#f3f5ff;--soft:#c9cdea;--mute:#9a9fc8;
+  --elec:#00aaff;--violet:#7b2fff;--purple:#b44fff;--green:#39ff14;--pink:#ef7afc;--cyan:#36fdfc;
+  --sans:"Space Grotesk","Helvetica Neue",Arial,sans-serif;--serif:"Cormorant Garamond",Georgia,serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --wrap:76rem;--gut:clamp(1rem,4vw,2.5rem);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:6.4rem}
+body{margin:0;background:var(--bg) radial-gradient(60rem 40rem at 85% -10%,rgba(123,47,255,.28),transparent 70%) no-repeat,var(--bg);color:var(--ink);font-family:var(--sans);font-size:clamp(1rem,.96rem + .2vw,1.08rem);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{margin:0;font-weight:600;letter-spacing:-.02em;line-height:1.05}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+.kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--elec)}
+.grad{background:linear-gradient(90deg,#f0f4ff 0%,var(--elec) 55%,var(--violet) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.grad2{background:linear-gradient(90deg,var(--violet) 0%,var(--purple) 55%,var(--green) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;gap:.55em;font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:.95em 1.4em;border:1px solid var(--line2);color:var(--ink);background:transparent;cursor:pointer;transition:border-color .25s,background .25s,color .25s,box-shadow .25s}
+.btn:hover{border-color:var(--elec);box-shadow:0 0 0 1px var(--elec),0 0 24px rgba(0,170,255,.35)}
+.btn-hot{background:linear-gradient(90deg,var(--elec),var(--violet));border-color:transparent;color:#fff;font-weight:500}
+.btn-hot:hover{box-shadow:0 0 30px rgba(123,47,255,.6);color:#fff}
+:focus-visible{outline:2px solid var(--elec);outline-offset:3px}
 
-.pixpa-gallery-grid,
-.pixpa-pgallery,
-.pixpa-gallery,
-.pix-gallery,
-.pg-gallery,
-.pixpa-page-gallery,
-.pixpa-gallery-wrap,
-.pixpa-section-gallery,
-[class*="gallery-grid"],
-[class*="galleryGrid"],
-[class*="pgallery"],
-[class*="page-gallery"],
-[class*="GalleryGrid"],
-[class*="GalleryWrap"],
-[class*="gallery-wrap"],
-[class*="gallery-section"],
-[class*="gallery-container"],
-[class*="GallerySection"],
-[data-gallery],
-[data-page-gallery] {
-  display: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  overflow: hidden !important;
-}
+/* header */
+.top{position:sticky;top:0;z-index:50;background:rgba(17,18,46,.78);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:5.6rem;padding-block:.8rem}
+.logo{display:block;width:clamp(190px,24vw,300px)}
+.logo svg{overflow:visible}
+.logo svg{width:100%;height:auto;display:block}
+.top nav{display:flex;align-items:center;gap:clamp(.8rem,2.4vw,2rem)}
+.top nav a{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--soft);position:relative;padding:.4rem 0}
+.top nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,var(--elec),var(--violet));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.top nav a:hover,.top nav a[aria-current="true"]{color:var(--ink)}
+.top nav a:hover::after,.top nav a[aria-current="true"]::after{transform:scaleX(1)}
+.top nav .btn{padding:.7em 1.1em;color:#fff}
+@media (max-width:760px){.top nav a:not(.btn){display:none}.top .wrap{min-height:4.8rem;padding-block:.7rem}.logo{width:min(50vw,200px)}.top nav .btn{white-space:nowrap;padding:.7em .9em;font-size:.68rem}}
 
-#ilp-hero {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 5rem 4rem 0;
-  overflow: hidden;
-  background: #04040C;
-}
+/* hero */
+.hero{position:relative;isolation:isolate;overflow:hidden;padding-block:clamp(4rem,9vw,7rem);border-bottom:1px solid var(--line)}
+#field{position:absolute;inset:0;width:100%;height:100%;z-index:-2;display:block}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(70% 60% at 30% 45%,transparent 0%,rgba(17,18,46,.35) 100%)}
+.h-grid{display:grid;gap:1.6rem 4rem;align-items:end}
+@media (min-width:960px){.h-grid{grid-template-columns:1.25fr 1fr}}
+.eyebrow{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.4rem 1rem}
+.eyebrow span{white-space:nowrap}
+.eyebrow span+span::before{content:"·";margin-right:1rem;color:var(--mute)}
+.hero .hname{font-size:clamp(3rem,1.8rem + 6.5vw,7.5rem);font-weight:700;letter-spacing:-.045em;line-height:.86;text-transform:uppercase}
+.hero .hname span{display:block}
+.statement{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.25rem,1rem + 1vw,1.75rem);line-height:1.45;color:rgba(238,241,255,.72);max-width:32ch;padding-bottom:.4rem}
+.statement b{font-weight:400;color:var(--ink)}
+.h-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.8rem;margin-top:.6rem}
+.mosaic{padding:14px}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.mcol{display:grid;gap:14px}
+.mtile{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:block;overflow:hidden;background:var(--panel)}
+.mtile img{width:100%;height:auto;display:block;transition:transform 1.1s cubic-bezier(.2,.7,.2,1),filter .6s}
+.mtile::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(170,180,255,.12);transition:box-shadow .4s}
+.mtile:hover img{transform:scale(1.035);filter:saturate(1.15) brightness(1.05)}
+.mtile:hover::after{box-shadow:inset 0 0 0 1px var(--elec),inset 0 0 60px rgba(0,170,255,.25)}
+.mtile:focus-visible{outline:2px solid var(--elec);outline-offset:3px}
+.mcap{position:absolute;left:0;right:0;bottom:0;padding:2.2rem 1rem .9rem;display:grid;gap:.2rem;background:linear-gradient(180deg,transparent,rgba(10,10,30,.85));opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s}
+.mcap b{font-size:1.05rem;font-weight:600}
+.mcap .kicker{font-size:.62rem;color:var(--cyan)}
+.mtile:hover .mcap,.mtile:focus-visible .mcap{opacity:1;transform:none}
+@media (max-width:640px){.mosaic{padding:8px}.mgrid,.mcol{gap:8px}.mcap{opacity:1;transform:none;padding:1.4rem .6rem .5rem}.mcap b{font-size:.82rem}.mcap .kicker{display:none}}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-#ilp-content {
-  position: relative;
-  z-index: 3;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 0 4rem;
-  align-items: end;
-  margin-bottom: 2rem;
-}
+/* credentials */
+.creds{border-block:1px solid var(--line);background:linear-gradient(90deg,rgba(0,170,255,.04),rgba(123,47,255,.06))}
+.creds ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))}
+.creds li{padding:1.4rem 1.2rem;border-left:1px solid var(--line);display:grid;gap:.3rem}
+.creds li:first-child{border-left:0}
+.creds b{font-size:1.1rem;font-weight:600}
+.creds span{font-size:.88rem;color:var(--mute)}
+@media (max-width:640px){.creds li{border-left:0;border-top:1px solid var(--line)}.creds li:first-child{border-top:0}}
 
-#ilp-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  color: #00AAFF;
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 1.2rem;
-  animation: ilpFadeUp 0.7s 0.2s both;
-  white-space: nowrap;
-  grid-column: 1 / -1;
-}
+section.block{padding-block:clamp(4.5rem,10vw,8rem)}
+.sec-head{display:grid;gap:1.2rem;margin-bottom:clamp(2.5rem,5vw,3.5rem)}
+@media (min-width:900px){.sec-head{grid-template-columns:1fr 1fr;align-items:end;gap:3rem}}
+.sec-head h2{font-size:clamp(2.4rem,1.6rem + 3.5vw,4.6rem);margin-top:.8rem}
+.sec-head p{color:var(--soft);max-width:52ch}
 
-#ilp-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(2.8rem, 5vw, 6rem);
-  line-height: 1;
-  letter-spacing: 0.04em;
-  margin-bottom: 0;
-  animation: ilpFadeUp 0.7s 0.4s both;
-  grid-column: 1;
-  grid-row: 2;
-  align-self: end;
-  white-space: nowrap;
-}
+/* practice */
+.practice{position:relative;overflow:hidden}
+.practice blockquote{margin:1.2rem 0 0;font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.9rem,1.2rem + 3vw,3.6rem);line-height:1.15;max-width:22ch}
+.practice blockquote em{font-style:italic;color:var(--cyan)}
+.practice .p-grid{display:grid;gap:2rem 4rem}
+@media (min-width:900px){.practice .p-grid{grid-template-columns:1.4fr 1fr;align-items:end}}
+.practice p{color:var(--soft);max-width:44ch}
+.spectrum{height:3px;margin-top:2.6rem;background:linear-gradient(90deg,#7b2fff,#00aaff,#36fdfc,#39ff14,#ffe14a,#ff7a2b,#ef3b5e);opacity:.8;filter:blur(.3px);box-shadow:0 0 18px rgba(0,170,255,.5)}
 
-#ilp-statement {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1rem, 1.4vw, 1.25rem);
-  font-weight: 300;
-  font-style: italic;
-  color: rgba(240,244,255,0.65);
-  line-height: 1.8;
-  animation: ilpFadeUp 0.7s 0.7s both;
-  grid-column: 2;
-  grid-row: 2;
-  align-self: end;
-  padding-bottom: 0.5rem;
-  margin: 0;
-}
-#ilp-canvas {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  z-index: 0; display: block;
-  pointer-events: none;
-}
+/* work */
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.6rem;position:sticky;top:5.8rem;z-index:20;padding:.7rem 0;background:linear-gradient(180deg,var(--bg) 70%,transparent)}
+.chip{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;padding:.6em 1.05em;border:1px solid var(--line2);background:transparent;color:var(--soft);cursor:pointer;border-radius:999px;transition:all .25s}
+.chip:hover{color:var(--ink);border-color:var(--elec)}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chapter{padding-block:clamp(2.4rem,5vw,3.6rem);border-top:1px solid var(--line)}
+.ch-head{display:grid;gap:.8rem 2rem;margin-bottom:1.8rem;grid-template-columns:auto 1fr}
+.ch-head p{grid-column:1/-1;color:var(--soft);max-width:68ch}
+@media (min-width:960px){.ch-head{grid-template-columns:auto minmax(0,22rem) 1fr;align-items:start}.ch-head p{grid-column:auto}}
+.ch-num{font-family:var(--mono);font-size:.8rem;color:var(--violet);padding-top:.55rem}
+.ch-head h3{font-size:clamp(1.7rem,1.3rem + 1.6vw,2.5rem);margin-bottom:.45rem}
+.wgrid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,17rem),1fr));grid-auto-flow:dense}
+@media (min-width:760px){.wc.wide{grid-column:span 2}.wc.tall{grid-row:span 2}}
+.wc{min-width:0}
+.wc[hidden]{display:none}
+.wc-hit{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;height:100%;width:100%;background:var(--panel);border:1px solid var(--line);transition:border-color .3s,transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
+.wc-hit:hover{border-color:rgba(0,170,255,.55);transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(0,170,255,.55)}
+.wc-hit:focus-visible{outline:2px solid var(--elec);outline-offset:3px}
+.wc-media{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:#0b0b1c}
+.wc.tall .wc-media{aspect-ratio:auto;flex:1;min-height:20rem}
+.wc-media img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .5s;filter:saturate(.9)}
+.wc.tall .wc-media img{object-position:50% 58%}
+.wc-hit:hover .wc-media img{transform:scale(1.05);filter:saturate(1.1)}
+.wc-media.is-empty{background:radial-gradient(120% 90% at 50% 120%,rgba(0,170,255,.35),transparent 60%),linear-gradient(160deg,#0b0b1f,#12062a)}
+.beams{position:absolute;inset:0;display:block}
+.beams i{position:absolute;left:50%;bottom:-6%;width:2px;height:130%;transform-origin:bottom center;background:linear-gradient(0deg,rgba(57,255,20,.95),rgba(57,255,20,0));filter:drop-shadow(0 0 6px rgba(57,255,20,.8));animation:sweep 6s ease-in-out infinite alternate}
+.beams i:nth-child(1){transform:rotate(-38deg)}.beams i:nth-child(2){transform:rotate(-18deg);animation-delay:-1s}.beams i:nth-child(3){transform:rotate(0deg);background:linear-gradient(0deg,rgba(0,170,255,.95),transparent);animation-delay:-2s}
+.beams i:nth-child(4){transform:rotate(18deg);animation-delay:-3s}.beams i:nth-child(5){transform:rotate(38deg);background:linear-gradient(0deg,rgba(180,79,255,.95),transparent);animation-delay:-4s}
+@keyframes sweep{from{margin-left:-14px}to{margin-left:14px}}
+.wc-badge{position:absolute;left:.7rem;top:.7rem;display:inline-flex;align-items:center;gap:.4em;font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;padding:.42em .7em;background:rgba(17,18,46,.8);border:1px solid var(--line2);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.wc-badge svg{width:.7rem;height:.7rem;fill:var(--green)}
+.wc-body{display:grid;gap:.45rem;padding:1rem 1.1rem 1.25rem}
+.wc-body .kicker{font-size:.64rem;color:var(--mute)}
+.wc-title{font-size:1.12rem;font-weight:600;line-height:1.2}
+.wc-body p{font-size:.92rem;color:var(--soft);line-height:1.55}
+.feature{display:grid;gap:1.6rem 3rem;margin-top:2.6rem;padding-top:2.4rem;border-top:1px dashed var(--line)}
+@media (min-width:960px){.feature{grid-template-columns:minmax(0,1fr) minmax(0,1.6fr)}}
+.ft-text{display:grid;gap:.9rem;align-content:start}
+.ft-text h4{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.6rem,1.2rem + 1.4vw,2.3rem);line-height:1.15;letter-spacing:0}
+.ft-text p{color:var(--soft)}
+.chapter.is-out{display:none}
+@media (max-width:640px){.filters{position:static}}
 
-/* Light shafts */
-#ilp-hero::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 35%; width: 1px; height: 100%;
-  background: linear-gradient(to bottom, transparent, rgba(123,47,255,0.3), transparent);
-  z-index: 1; pointer-events: none;
-}
-#ilp-hero::after {
-  content: '';
-  position: absolute;
-  top: 0; right: 28%; width: 1px; height: 100%;
-  background: linear-gradient(to bottom, transparent, rgba(0,170,255,0.2), transparent);
-  z-index: 1; pointer-events: none;
-}
+/* about */
+.about-grid{display:grid;gap:2.5rem 4rem;align-items:center}
+@media (min-width:900px){.about-grid{grid-template-columns:.9fr 1.1fr}}
+.portrait{position:relative}
+.portrait img{width:100%;aspect-ratio:1;object-fit:cover;border:1px solid var(--line2)}
+.portrait::before{content:"";position:absolute;inset:-14px 14px 14px -14px;border:1px solid var(--violet);z-index:-1;opacity:.6}
+.portrait figcaption,.bench figcaption{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-top:.8rem}
+.about-copy{display:grid;gap:1.4rem}
+.about-copy h2{font-size:clamp(2.4rem,1.6rem + 3.5vw,4.6rem)}
+.about-copy .lead{font-size:clamp(1.12rem,1rem + .5vw,1.35rem);color:var(--soft);line-height:1.6}
+.quote{margin:0;padding:1.4rem 1.5rem;border-left:2px solid var(--green);background:rgba(57,255,20,.04)}
+.quote p{font-family:var(--serif);font-style:italic;font-size:1.3rem;line-height:1.45}
+.quote cite{display:block;margin-top:.7rem;font-style:normal;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.bench{margin:3.5rem 0 0}
+.bench img{width:100%;aspect-ratio:21/9;object-fit:cover;object-position:50% 35%;border:1px solid var(--line)}
 
-/* Horizontal photo train */
-#ilp-photos {
-  position: relative;
-  z-index: 3;
-  width: 100%;
-  height: 380px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-#ilp-train {
-  display: flex;
-  gap: 16px;
-  padding: 0 16px;
-}
-.ilp-photo {
-  flex-shrink: 0;
-  width: 420px;
-  height: 340px;
-  overflow: hidden;
-  opacity: 0;
-  mix-blend-mode: luminosity;
-  transition: opacity 1.5s ease;
-}
-.ilp-photo.loaded { opacity: 0.55; }
-.ilp-photo img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: saturate(0.7) brightness(1.2);
-}
-.ilp-photo::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 1px solid rgba(0,170,255,0.2);
-  pointer-events: none;
-}
+/* resume */
+.resume{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 12%,var(--bg2) 88%,var(--bg) 100%)}
+.legend{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;margin-bottom:1.6rem}
+.legend span{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+.legend i{width:9px;height:9px;border-radius:50%}
+.tlist{position:relative;display:grid;gap:12px;padding-left:2rem}
+.tlist::before{content:"";position:absolute;left:.45rem;top:.6rem;bottom:.6rem;width:1px;background:linear-gradient(180deg,var(--violet),var(--elec),var(--green))}
+.tl{background:var(--panel);border:1px solid var(--line);transition:border-color .3s}
+.tl[open]{border-color:var(--line2)}
+.tl summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:.3rem 1rem;padding:1.3rem 1.4rem;position:relative}
+.tl summary::-webkit-details-marker{display:none}
+.tl summary:hover .tl-title{color:var(--cyan)}
+.tl-dot{position:absolute;left:calc(-2rem + .45rem - 5px);top:1.75rem;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--c,var(--elec));box-shadow:0 0 10px var(--c,var(--elec))}
+.tl.role{--c:#ffb547}.tl.learning{--c:var(--elec)}.tl.project{--c:var(--green)}.tl.leadership{--c:var(--purple)}
+.tl-date{grid-column:1;font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
+.tl-title{grid-column:1;font-size:clamp(1.35rem,1.1rem + 1vw,1.8rem);font-weight:600;transition:color .25s}
+.tl-role{grid-column:1;color:var(--ink);opacity:.85;font-size:.98rem}
+.tl-desc{grid-column:1/-1;color:var(--soft);font-size:.95rem;margin-top:.3rem;max-width:80ch}
+.tl-toggle{grid-column:2;grid-row:1/4;align-self:center;width:2.1rem;height:2.1rem;border:1px solid var(--line2);border-radius:50%;position:relative;transition:transform .3s,border-color .3s}
+.tl-toggle::before,.tl-toggle::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:var(--ink);transform:translate(-50%,-50%)}
+.tl-toggle::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .3s}
+.tl[open] .tl-toggle::after{transform:translate(-50%,-50%) rotate(0)}
+.tl summary:hover .tl-toggle{border-color:var(--c)}
+.tl-body{padding:0 1.4rem 1.5rem;display:grid;gap:1.3rem;animation:open .35s ease both}
+@keyframes open{from{opacity:0;transform:translateY(-6px)}}
+.thread{font-family:var(--serif);font-style:italic;font-size:1.2rem;line-height:1.5;padding:1rem 1.2rem;border-left:2px solid var(--c);background:rgba(255,255,255,.025)}
+.rg{display:grid;gap:.7rem}
+.rg ul{list-style:none;margin:0;padding:0;display:grid;gap:.7rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))}
+.ri{display:grid;grid-template-columns:1.2rem 1fr;gap:.6rem;padding:.85rem .95rem;border:1px solid var(--line);background:rgba(255,255,255,.015)}
+.ri-ic{color:var(--c);font-size:.8rem;line-height:1.6}
+.ri.award .ri-ic{color:#ffd65a}.ri.learning .ri-ic,.ri.cert .ri-ic{color:var(--elec)}.ri.leadership .ri-ic{color:var(--purple)}.ri.project .ri-ic{color:var(--green)}
+.ri b{display:block;font-weight:600;font-size:.98rem;line-height:1.35}
+.ri span span{display:block;color:var(--soft);font-size:.88rem;margin-top:.25rem;line-height:1.5}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tags span{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;padding:.35em .65em;border:1px solid var(--line2);color:var(--soft);border-radius:999px}
+.tl-section{font-size:clamp(1.6rem,1.2rem + 1.5vw,2.4rem);margin:3.2rem 0 1.2rem}
+.comm-h{display:block;margin:1.6rem 0 .8rem 2rem}
+.comm{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));padding-left:2rem;margin-bottom:12px}
+.cc{border:1px solid var(--line);padding:1.2rem;display:grid;gap:.5rem;background:rgba(0,170,255,.03)}
+.cc-org{font-family:var(--mono);font-weight:500;color:var(--cyan);letter-spacing:.1em}
+.cc p{color:var(--soft);font-size:.92rem}
+.r-foot{margin-top:3.5rem;font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,1rem + 1vw,1.75rem);line-height:1.45;max-width:46ch;color:rgba(238,241,255,.8)}
 
-/* Vignette — just edges of photo train */
-#ilp-vignette {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 280px;
-  z-index: 4;
-  pointer-events: none;
-  background:
-    linear-gradient(to right, rgba(4,4,12,0.85) 0%, transparent 12%),
-    linear-gradient(to left,  rgba(4,4,12,0.85) 0%, transparent 12%),
-    linear-gradient(to top,   rgba(4,4,12,0.7)  0%, transparent 40%);
-}
+/* contact */
+.contact-grid{display:grid;gap:2.5rem 4rem}
+@media (min-width:900px){.contact-grid{grid-template-columns:1fr 1.1fr}}
+.contact h2{font-size:clamp(2.6rem,1.6rem + 4.5vw,5.6rem);line-height:.95}
+.contact .lead{color:var(--soft);margin-top:1.4rem;max-width:40ch}
+.links{display:grid;gap:.2rem;margin-top:2rem;list-style:none;padding:0}
+.links a{display:flex;justify-content:space-between;align-items:center;padding:.9rem 0;border-bottom:1px solid var(--line);text-decoration:none;font-size:1.05rem;transition:color .25s,padding .3s}
+.links a:hover{color:var(--cyan);padding-left:.4rem}
+.links a span{font-family:var(--mono);font-size:.72rem;color:var(--mute);letter-spacing:.1em}
+form{display:grid;gap:1rem;background:var(--panel);border:1px solid var(--line);padding:clamp(1.3rem,3vw,2rem)}
+label{display:grid;gap:.4rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+input,textarea{font:inherit;font-family:var(--sans);font-size:1rem;letter-spacing:0;text-transform:none;color:var(--ink);background:rgba(255,255,255,.03);border:1px solid var(--line2);padding:.85rem .9rem;border-radius:0;width:100%}
+input:focus,textarea:focus{outline:none;border-color:var(--elec);box-shadow:0 0 0 3px rgba(0,170,255,.18)}
+textarea{min-height:9rem;resize:vertical}
+.hp{position:absolute;left:-9999px}
+form .btn{justify-self:start}
+footer{border-top:1px solid var(--line);padding-block:2rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--mute);text-transform:uppercase}
+footer a{text-decoration:none}footer a:hover{color:var(--ink)}
 
-#ilp-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  color: #00AAFF;
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 1.5rem;
-  animation: ilpFadeUp 0.7s 0.2s both;
-  white-space: nowrap;
-}
-#ilp-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(3.5rem, 8vw, 9rem);
-  line-height: 0.85;
-  letter-spacing: 0.02em;
-  margin-bottom: 0;
-  animation: ilpFadeUp 0.7s 0.4s both;
-}
-#ilp-line1 {
-  display: inline;
-  background: linear-gradient(90deg, #F0F4FF 0%, #00AAFF 60%, #7B2FFF 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-#ilp-line2 {
-  display: inline;
-  background: linear-gradient(90deg, #7B2FFF 0%, #B44FFF 60%, #39FF14 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-#ilp-statement {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
-  font-weight: 300;
-  font-style: italic;
-  color: rgba(240,244,255,0.65);
-  line-height: 1.75;
-  max-width: 580px;
-  margin: 1.8rem 0 2.5rem;
-  animation: ilpFadeUp 0.7s 0.7s both;
-}
-#ilp-statement strong {
-  color: #F0F4FF;
-  font-style: normal;
-  font-weight: 300;
-}
-#ilp-scroll {
-  position: absolute;
-  bottom: 1rem; right: 4rem;
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  animation: ilpFadeUp 0.7s 1s both;
-}
-#ilp-scroll span {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.58rem;
-  letter-spacing: 0.25em;
-  color: rgba(0,170,255,0.45);
-  text-transform: uppercase;
-  writing-mode: vertical-rl;
-}
-#ilp-scroll-line {
-  width: 1px; height: 60px;
-  background: linear-gradient(to bottom, #00AAFF, transparent);
-  animation: ilpScrollPulse 2s infinite;
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(8,8,24,.94);display:grid;place-items:center;padding:4rem 1rem 2rem;opacity:0;pointer-events:none;transition:opacity .3s}
+.lb.open{opacity:1;pointer-events:auto}
+.lb figure{margin:0;max-width:min(92vw,1400px);display:grid;gap:.9rem}
+.lb img{max-height:80vh;width:auto;margin-inline:auto;border:1px solid var(--line2)}
+.lb figcaption{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);text-align:center}
+.lb-x{position:absolute;top:1rem;right:1rem}
+
+/* reveal + reduced motion */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .beams i{animation:none}
+  .rv{opacity:1;transform:none;transition:none}
+  .wc-hit,.wc-media img,.mtile img{transition:none}
 }
 
-@keyframes ilpFadeUp {
-  from { opacity: 0; transform: translateY(35px); }
-  to   { opacity: 1; transform: none; }
-}
-@keyframes ilpScrollPulse {
-  0%   { transform: scaleY(1);   opacity: 1; transform-origin: top; }
-  100% { transform: scaleY(0.2); opacity: 0; transform-origin: top; }
-}
-@media(max-width: 768px) {
-  #ilp-hero { padding: 3rem 1.5rem 0; }
-  #ilp-content { grid-template-columns: 1fr; }
-  #ilp-eyebrow { font-size: 0.55rem; white-space: normal; }
-  #ilp-statement { grid-column: 1; grid-row: 3; }
-  #ilp-line2 { margin-left: 0; }
-  #ilp-photos { height: 200px; }
-}
+/* bullseye cursor (mouse and trackpad only) */
+.cur,.cur-ring{position:fixed;left:0;top:0;pointer-events:none;border-radius:50%;opacity:0}
+.cur{width:8px;height:8px;background:var(--elec);box-shadow:0 0 12px var(--elec);z-index:100000;transition:width .18s,height .18s,opacity .2s}
+.cur-ring{width:36px;height:36px;border:1px solid var(--violet);z-index:99999;transition:width .2s,height .2s,opacity .2s}
+html.has-cur .cur{opacity:1}html.has-cur .cur-ring{opacity:.6}
+html.has-cur,html.has-cur *{cursor:none!important}
+html.has-cur input,html.has-cur textarea{cursor:auto!important}
+html.cur-hover .cur{width:20px;height:20px}html.cur-hover .cur-ring{width:54px;height:54px;opacity:.3}
+html.cur-text .cur,html.cur-text .cur-ring,html.cur-out .cur,html.cur-out .cur-ring{opacity:0}
+
+/* ===== iridescent layer: oil-slick thin film, direct and reflected light ===== */
+body{background:
+  radial-gradient(46rem 32rem at 8% 2%,rgba(54,253,252,.11),transparent 70%),
+  radial-gradient(52rem 36rem at 96% 8%,rgba(239,122,252,.13),transparent 70%),
+  radial-gradient(60rem 40rem at 50% 115%,rgba(111,141,255,.12),transparent 70%),var(--bg);background-attachment:fixed}
+.top{background:rgba(10,11,23,.72)}
+@keyframes film{to{background-position:300% 50%}}
+.grad,.grad2,.film-text{background:var(--film);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:film 14s linear infinite}
+.grad2{animation-delay:-5s;animation-direction:reverse}
+.btn-hot{background:var(--film);background-size:300% 100%;animation:film 10s linear infinite;color:#090a16!important;font-weight:600;border-color:transparent}
+.btn-hot:hover{box-shadow:0 0 0 1px rgba(255,255,255,.6),0 0 34px rgba(180,79,255,.55),0 0 60px rgba(54,253,252,.25);color:#090a16}
+.btn:not(.btn-hot):hover{border-color:transparent;background:linear-gradient(var(--bg),var(--bg)) padding-box,var(--film) border-box;box-shadow:0 0 26px rgba(111,141,255,.3)}
+.chip.on{background:var(--film);background-size:300% 100%;animation:film 12s linear infinite;color:#090a16;border-color:transparent}
+.spectrum{background:var(--film);background-size:200% 100%;animation:film 9s linear infinite;height:2px;box-shadow:0 0 22px rgba(180,79,255,.6),0 0 6px rgba(54,253,252,.8)}
+.kicker{color:#8fe9ff}
+/* cards: thin-film rim and a specular glare that follows the light (pointer) */
+.wc-hit,.mtile,.tl,.cc,form,.ri{position:relative}
+.wc-hit{border:1px solid transparent;background:linear-gradient(var(--panel),var(--panel)) padding-box,linear-gradient(135deg,rgba(200,215,255,.22),rgba(200,215,255,.08)) border-box}
+.wc-hit:hover{border-color:transparent;background:linear-gradient(var(--panel),var(--panel)) padding-box,var(--film) border-box;box-shadow:0 24px 50px -26px rgba(180,79,255,.65),0 0 40px -12px rgba(54,253,252,.35)}
+.glare::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;opacity:0;transition:opacity .35s;mix-blend-mode:screen;
+  background:radial-gradient(22rem 22rem at var(--gx,50%) var(--gy,30%),rgba(255,255,255,.26),rgba(160,220,255,.10) 30%,transparent 62%),
+             linear-gradient(115deg,transparent 30%,rgba(54,253,252,.10) 42%,rgba(239,122,252,.12) 52%,rgba(255,179,138,.08) 60%,transparent 72%)}
+.glare:hover::before{opacity:1}
+.mtile::after{box-shadow:none;border:1px solid transparent;background:var(--film) border-box;-webkit-mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.18;transition:opacity .4s}
+.mtile:hover::after{box-shadow:none;opacity:1}
+.mcap .kicker{color:#bff6ff}
+/* blueprint plate behind the name, after the flower poster */
+.hero{background-image:linear-gradient(rgba(190,210,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(190,210,255,.05) 1px,transparent 1px);background-size:56px 56px;background-position:center}
+.plate-marks{position:absolute;inset:clamp(1rem,3vw,2rem);pointer-events:none;z-index:-1}
+.plate-marks i{position:absolute;width:22px;height:22px;border-color:rgba(220,230,255,.45);border-style:solid;border-width:0}
+.plate-marks i:nth-child(1){left:0;top:0;border-left-width:1px;border-top-width:1px}.plate-marks i:nth-child(2){right:0;top:0;border-right-width:1px;border-top-width:1px}
+.plate-marks i:nth-child(3){left:0;bottom:0;border-left-width:1px;border-bottom-width:1px}.plate-marks i:nth-child(4){right:0;bottom:0;border-right-width:1px;border-bottom-width:1px}
+.plate-marks span{position:absolute;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(220,230,255,.45)}
+.plate-marks .a{left:34px;top:4px}.plate-marks .b{right:34px;top:4px;text-align:right}.plate-marks .c{left:34px;bottom:4px}.plate-marks .d{right:34px;bottom:4px}
+.petal-fig{position:absolute;right:clamp(1rem,4vw,3rem);bottom:clamp(3rem,7vw,5rem);width:clamp(120px,15vw,190px);z-index:-1;opacity:.75;pointer-events:none}
+.petal-fig svg{width:100%;height:auto;display:block}
+@media (max-width:900px){.petal-fig{display:none}}
+.hero::after{background:radial-gradient(70% 70% at 30% 45%,transparent 0%,rgba(10,11,23,.45) 100%)}
+.quote{border-left:0;background:linear-gradient(rgba(255,255,255,.02),rgba(255,255,255,.02)) padding-box;position:relative}
+.quote::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--film);background-size:100% 300%}
+.tlist::before{background:var(--film);background-size:100% 100%;width:1.5px;box-shadow:0 0 10px rgba(180,79,255,.5)}
+.tl{border:1px solid transparent;background:linear-gradient(var(--panel),var(--panel)) padding-box,linear-gradient(135deg,rgba(200,215,255,.2),rgba(200,215,255,.06)) border-box}
+.tl[open]{background:linear-gradient(var(--panel),var(--panel)) padding-box,var(--film) border-box}
+.portrait::before{border:0;background:var(--film);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:1px;opacity:.9}
+.cur{background:#fff;box-shadow:0 0 10px #fff,0 0 22px rgba(54,253,252,.9)}
+.cur-ring{border:1px solid transparent;background:var(--film) border-box;-webkit-mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+@media (prefers-reduced-motion: reduce){.grad,.grad2,.film-text,.btn-hot,.chip.on,.spectrum{animation:none}}
 </style>
+</head>
+<body>
 
-<div id="ilp-hero">
-  <canvas id="ilp-canvas"></canvas>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="I Love Photons, back to top"><svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 370 115" role="img" aria-label="I Love Photons"><defs><style>.ilp-1{fill:url(#lg);}.ilp-2{fill:#6a08f6;}.ilp-3{fill:#36fdfc;}.ilp-4{fill:url(#lg-2);}.ilp-5{fill:url(#lg-3);}</style><linearGradient id="lgFilm" x1="0" y1="0" x2="180" y2="0" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0.000" stop-color="#36fdfc"/><stop offset="0.167" stop-color="#6f8dff"/><stop offset="0.333" stop-color="#b44fff"/><stop offset="0.500" stop-color="#ef7afc"/><stop offset="0.667" stop-color="#ffb38a"/><stop offset="0.833" stop-color="#c8ff9e"/><stop offset="1.000" stop-color="#36fdfc"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="360 0" dur="9s" repeatCount="indefinite"/></linearGradient><linearGradient id="lgFilmH" x1="0" y1="0" x2="120" y2="40" gradientUnits="userSpaceOnUse" spreadMethod="reflect"><stop offset="0.000" stop-color="#36fdfc"/><stop offset="0.167" stop-color="#6f8dff"/><stop offset="0.333" stop-color="#b44fff"/><stop offset="0.500" stop-color="#ef7afc"/><stop offset="0.667" stop-color="#ffb38a"/><stop offset="0.833" stop-color="#c8ff9e"/><stop offset="1.000" stop-color="#36fdfc"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="240 0" dur="9s" repeatCount="indefinite"/></linearGradient></defs><path fill="url(#lgFilmH)" stroke="url(#lgFilmH)" stroke-width="1.6" stroke-linejoin="round" d="M102,6.44C95,.59,85.1-1.39,75,1,64,3.55,54.34,11.13,47.82,22.35a1.41,1.41,0,0,0,2.44,1.41c6.12-10.54,15.12-17.65,25.33-20,9.29-2.17,18.24-.39,24.56,4.88,6.78,5.64,10.06,14.67,9.5,26.11C108.12,66,61.13,95.91,56.09,99,49.6,95,4.37,65.63,2.87,34.92,1.81,13.25,14.33,4.31,26.39,3.16a32.71,32.71,0,0,1,10.54.77,1.41,1.41,0,0,0,.64-2.74A35.77,35.77,0,0,0,26.12.36C9.34,2-.89,15.58.06,35.06.77,49.57,10.34,65.25,28.49,81.67a193.6,193.6,0,0,0,26.94,20.25,1.41,1.41,0,0,0,.71.2,1.93,1.93,0,0,0,1-.43A196.55,196.55,0,0,0,84,81.46c18.16-16.42,27.72-32.1,28.43-46.61C113.22,19.24,107.17,10.78,102,6.44Z"/><path fill="url(#lgFilmH)" stroke="url(#lgFilmH)" stroke-width="1.2" stroke-linejoin="round" d="M45.68,77.39a1.38,1.38,0,0,1-1.23-.73A1.4,1.4,0,0,1,45,74.75c9.46-5.2,17.07-9.44,21.88-12.75s5.61-4.91,5.61-5.54c-1.83.09-7.85,3.37-11.91,5.57C50,67.78,43.43,71.12,41.43,67.53S46,60,57.7,53.33c4.13-2.35,8.4-4.78,11.5-6.92,4.1-2.84,4.38-4,4.39-4.19-.21-.07-1.3-.24-5.08,1.53-2.9,1.35-6.48,3.42-10,5.42-8.58,5-14,8-16.9,7.12A2.68,2.68,0,0,1,40,55c-2.05-3.87,4.87-8.21,16.33-15,6.12-3.62,14.52-8.57,15.09-10.91a.31.31,0,0,0,0-.11c-.23-.08-1.64-.34-7,2.37-3.78,1.93-8.31,4.7-12.3,7.14-8.5,5.21-10.82,6.47-12.32,6a1.64,1.64,0,0,1-1.05-.94C37.2,39.89,42.6,31.7,44.3,29.28a1.4,1.4,0,1,1,2.3,1.61c-2.59,3.71-5,8.37-5.3,10.6,1.91-.83,6-3.33,9.39-5.41,12.84-7.85,20.8-12.36,23.12-8.63a3,3,0,0,1,.34,2.3c-.8,3.25-6.73,7-16.4,12.66-4.23,2.5-8.59,5.07-11.59,7.3-3.52,2.62-3.7,3.68-3.69,3.89,1.69.64,9.81-4.05,14.69-6.86,8.77-5.07,14.3-8.08,17.23-7.22a2.73,2.73,0,0,1,1.71,1.4c2.06,4-5.94,8.57-17,14.85-3.87,2.2-7.87,4.47-10.78,6.45-3.7,2.5-4.28,3.62-4.37,3.93.28.09,1.47.21,5.23-1.43,3-1.3,6.59-3.26,10.08-5.16,9.49-5.16,14.12-7.51,15.65-4.73,2.71,4.93-6.79,10.42-28.53,22.38A1.41,1.41,0,0,1,45.68,77.39Zm-4.31-35Z"/><path fill="url(#lgFilm)" stroke="url(#lgFilm)" stroke-width="1.7" stroke-linejoin="round" d="M142.88,17.08a.63.63,0,0,1,.61-.64h1a.63.63,0,0,1,.61.64V50.43a.65.65,0,0,1-.66.64h-1a.64.64,0,0,1-.61-.64Zm33,0a.63.63,0,0,1,.6-.64h1a.63.63,0,0,1,.57.64V49H193c.56,0,.61.3.61.64v.89a.56.56,0,0,1-.61.55H176.46a.64.64,0,0,1-.6-.64Zm56.5,0c-.18-.4,0-.64.38-.64H234a.55.55,0,0,1,.52.34l12.64,30.73h.09L260,16.78a.54.54,0,0,1,.51-.34h1.22c.42,0,.61.29.42.69l-14.37,34a.61.61,0,0,1-.56.44H247a.62.62,0,0,1-.52-.44Zm15.31,52.54h-8.94c-.47,0-.61-.3-.61-.74v-.74a.61.61,0,0,1,.61-.65h20.13a.61.61,0,0,1,.61.65V69a.61.61,0,0,1-.61.64h-9v31.86a.67.67,0,0,1-.74.64h-.85a.63.63,0,0,1-.61-.64Zm55.53-2a.65.65,0,0,1,.7-.64h.8l22.47,30.92h0V68.14a.64.64,0,0,1,.61-.65h.94a.65.65,0,0,1,.61.65V102a.67.67,0,0,1-.75.64H328c-.05,0-.42-.15-22.66-31.22h-.05v30.08a.63.63,0,0,1-.6.64h-.89a.63.63,0,0,1-.61-.64Zm34.13,29.88.42-.59c.32-.4.65-.55,1-.2s3.93,3.81,8.66,3.81c4.26,0,7.86-3,7.86-6.63,0-4.4-3.42-6.38-9.08-8.41-5.43-2-9-4.06-9-9.75C337.19,72,340,67,347.3,67a14.85,14.85,0,0,1,8.05,2.52.74.74,0,0,1,.19,1,5.37,5.37,0,0,0-.38.64c-.28.4-.56.55-1,.25a13.27,13.27,0,0,0-6.88-2.32c-5.76,0-7.91,3.75-7.91,6.58,0,4.2,3,6,7.77,7.66,6.41,2.33,10.49,4.7,10.49,10.44,0,5-4.83,8.81-10.21,8.81a14.79,14.79,0,0,1-9.92-4.06A.65.65,0,0,1,337.33,97.52ZM171.18,68.14a.62.62,0,0,0-.61-.65h-1a.64.64,0,0,0-.61.65v33.34a.63.63,0,0,0,.61.64h1a.61.61,0,0,0,.61-.64Zm22.61-.65h-1a.64.64,0,0,0-.61.65V83.32H174.25V85.4H192.2v16.08a.63.63,0,0,0,.61.64h1a.61.61,0,0,0,.61-.64V68.14A.62.62,0,0,0,193.79,67.49Zm90.82-33.14a.64.64,0,0,0,.61-.65v-.84a.64.64,0,0,0-.61-.64H272.83v2.13Zm2.9-16.43v-.84a.63.63,0,0,0-.61-.64H268.13a.63.63,0,0,0-.61.64V50.43a.64.64,0,0,0,.61.64H286.9a.64.64,0,0,0,.61-.64v-.8a.64.64,0,0,0-.61-.64H269.77V18.56H286.9A.63.63,0,0,0,287.51,17.92ZM151.84,67.49H141.78a.64.64,0,0,0-.61.65v33.34a.63.63,0,0,0,.61.64h.84a.67.67,0,0,0,.75-.64V69.82h8.33a8.63,8.63,0,0,1,8.52,8.7,8.79,8.79,0,0,1-8.47,9h-5.32V89.8h5.46c5.76,0,10.53-5,10.53-11.23A10.89,10.89,0,0,0,151.84,67.49Zm60.91-51.55c-9.28,0-16.71,7.67-16.84,17.45a.47.47,0,0,0,.45.5h1.14a.46.46,0,0,0,.46-.45c.18-8.49,6.71-15.32,14.79-15.32s14.84,7,14.84,15.68c0,8.41-6.27,15.18-14.12,15.57a.73.73,0,0,0-.69.73v.66a.79.79,0,0,0,.83.78c9-.46,16-8.1,16-17.74C229.65,23.91,222.16,15.94,212.75,15.94ZM218.83,67c-9.28,0-16.7,7.67-16.83,17.44a.47.47,0,0,0,.45.51h1.14a.47.47,0,0,0,.46-.45c.18-8.49,6.71-15.32,14.78-15.32s14.84,7,14.84,15.68c0,8.4-6.26,15.17-14.12,15.57a.72.72,0,0,0-.68.72v.67a.79.79,0,0,0,.83.78c9-.46,16-8.1,16-17.74C235.73,75,228.24,67,218.83,67Zm59.88,0c-9.28,0-16.71,7.67-16.84,17.44a.48.48,0,0,0,.46.51h1.14a.45.45,0,0,0,.45-.45c.18-8.49,6.71-15.32,14.79-15.32s14.84,7,14.84,15.68c0,8.4-6.26,15.17-14.12,15.57a.72.72,0,0,0-.68.72v.67a.79.79,0,0,0,.83.78c9-.46,16-8.1,16-17.74C295.61,75,288.12,67,278.71,67Z"/></svg></a>
+    <nav aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#resume">Resume</a>
+      <a class="btn btn-hot" href="#contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- Horizontal photo train -->
-  <div id="ilp-photos">
-    <div id="ilp-train"></div>
-    <div id="ilp-vignette"></div>
+<main id="top">
+  <section class="mosaic" aria-label="Selected images from twenty years of light, fire and story">
+    <h1 class="sr-only">Genell Zuciya · I Love Photons</h1>
+    <div class="mgrid"><div class="mcol"><button type="button" class="mtile" data-full="img/ravens-aerial.jpg" data-cap="Baltimore Ravens, M&amp;T Bank Stadium"><img src="img/ravens-aerial.jpg" alt="Aerial view of M&amp;T Bank Stadium ringed with fireworks"><span class="mcap"><span class="kicker">Pyrotechnics</span><b>Baltimore Ravens, M&amp;T Bank Stadium</b></span></button><button type="button" class="mtile" data-full="img/hillsong.jpg" data-cap="Hillsong United"><img src="img/hillsong.jpg" alt="Hillsong United onstage under green laser beams"><span class="mcap"><span class="kicker">Lasers</span><b>Hillsong United</b></span></button><button type="button" class="mtile" data-full="img/kevin-hart-set.jpg" data-cap="Kevin Hart: Let Me Explain Tour"><img src="img/kevin-hart-set.jpg" alt="Kevin Hart on the Let Me Explain set with flame effects" loading="lazy"><span class="mcap"><span class="kicker">Pyrotechnics · Lasers</span><b>Kevin Hart: Let Me Explain Tour</b></span></button><button type="button" class="mtile" data-full="img/neon-ne.jpg" data-cap="Neon"><img src="img/neon-ne.jpg" alt="Glowing red neon letters on a workbench" loading="lazy"><span class="mcap"><span class="kicker">Light</span><b>Neon</b></span></button><button type="button" class="mtile" data-full="img/robot-radio.jpg" data-cap="Robot Radio, Meow Wolf"><img src="img/robot-radio.jpg" alt="The Meow Wolf robot glowing in the snow" loading="lazy"><span class="mcap"><span class="kicker">Immersive</span><b>Robot Radio, Meow Wolf</b></span></button></div><div class="mcol"><button type="button" class="mtile" data-full="img/theta-stage.jpg" data-cap="Theta Theater, Meow Wolf Houston"><img src="img/theta-stage.jpg" alt="Theta Theater stage glowing under blacklight"><span class="mcap"><span class="kicker">Blacklight color mapping</span><b>Theta Theater, Meow Wolf Houston</b></span></button><button type="button" class="mtile" data-full="img/jets-aerial.jpg" data-cap="New York Jets Stadium Opening"><img src="img/jets-aerial.jpg" alt="Aerial of the Jets stadium opening ringed with red, white and blue fireworks"><span class="mcap"><span class="kicker">Pyrotechnics</span><b>New York Jets Stadium Opening</b></span></button><button type="button" class="mtile" data-full="img/rihanna-777.jpg" data-cap="Rihanna: 777 Tour"><img src="img/rihanna-777.jpg" alt="Green and blue laser beams over the Rihanna 777 Tour stage" loading="lazy"><span class="mcap"><span class="kicker">Lasers</span><b>Rihanna: 777 Tour</b></span></button><button type="button" class="mtile" data-full="img/mw-retail.jpg" data-cap="Meow Wolf, House of Eternal Return"><img src="img/mw-retail.jpg" alt="Iridescent crystal archway into the Meow Wolf shop" loading="lazy"><span class="mcap"><span class="kicker">Retail renovation</span><b>Meow Wolf, House of Eternal Return</b></span></button><button type="button" class="mtile" data-full="img/laser-fan.jpg" data-cap="Laser design"><img src="img/laser-fan.jpg" alt="Two fans of green laser beams over glowing LED bars" loading="lazy"><span class="mcap"><span class="kicker">Lasers</span><b>Laser design</b></span></button></div></div>
+  </section>
+  <section class="hero" aria-labelledby="hero-name">
+    <canvas id="field" aria-hidden="true"></canvas>
+    <div class="plate-marks" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="a">Fig. 01 · Interference</span><span class="b">λ 380–700 nm</span><span class="c">Two sources · one field</span><span class="d">ilovephotons.com</span></div>
+    <div class="petal-fig" aria-hidden="true"><svg viewBox="-100 -100 200 200" fill="none" stroke="rgba(225,235,255,.55)" stroke-width=".7">
+      <rect x="-96" y="-96" width="192" height="192" stroke="rgba(225,235,255,.35)"/><path d="M-96 0H96M0-96V96" stroke="rgba(225,235,255,.18)"/>
+      <g id="pt"><path d="M0-8C-18-30-24-62-10-80C-4-88 4-88 10-80C24-62 18-30 0-8Z"/><path d="M0-8C-6-34-6-58 0-78M0-8C6-34 6-58 0-78M-12-40C-4-46 4-46 12-40M-16-58C-6-64 6-64 16-58" stroke="rgba(225,235,255,.3)"/></g>
+      <use href="#pt" transform="rotate(72)"/><use href="#pt" transform="rotate(144)"/><use href="#pt" transform="rotate(216)"/><use href="#pt" transform="rotate(288)"/>
+      <circle r="9"/><circle r="4" stroke="rgba(54,253,252,.8)"/></svg></div>
+    <div class="wrap h-grid">
+      <p class="eyebrow kicker"><span>Immersive Experience Designer</span><span>Systems Translator</span><span>Photon Wrangler</span></p>
+      <h2 id="hero-name" class="hname"><span class="grad">Genell</span><span class="grad2">Zuciya</span></h2>
+      <p class="statement">I design what lives <b>in between.</b> Between science and wonder, between people and systems, between a photon leaving its source and the moment it becomes <b>part of an orchestrated story and built world.</b></p>
+      <div class="h-actions"><a class="btn btn-hot" href="#work">See the work</a><a class="btn" href="#resume">The journey</a></div>
+    </div>
+  </section>
+
+  <div class="creds">
+    <ul class="wrap">
+      <li><b>U.S. Patent</b><span>3D scanning laser display systems, granted 2018</span></li>
+      <li><b>3× THEA Award</b><span>2017, 2018 and 2021, Walt Disney Imagineering</span></li>
+      <li><b>IAAPA Honors 2025</b><span>Top location-based experience, Meow Wolf Grapevine</span></li>
+      <li><b>ILDA Award 2013</b><span>1st place, multimedia show with laser integration</span></li>
+      <li><b>M.S. Biomimicry</b><span>Arizona State University · Certified Biomimicry Professional</span></li>
+    </ul>
   </div>
 
-  <div id="ilp-content">
-    <span id="ilp-eyebrow">Immersive Experience Designer · Systems Translator · Photon Wrangler</span>
-    <h1 id="ilp-name">
-      <span id="ilp-line1">GENELL</span><span id="ilp-line2">&nbsp;ZUCIYA</span>
-    </h1>
-    <p id="ilp-statement">
-      I design what lives <strong>in between.</strong> Between science and wonder,<br/>
-      between people and systems, between a photon leaving its source<br/>
-      and the moment it becomes <strong>part of an orchestrated story and built world.</strong>
-    </p>
-  </div>
+  <section class="block practice" aria-labelledby="practice-h">
+    <div class="wrap">
+      <span class="kicker" id="practice-h">The Practice</span>
+      <div class="p-grid">
+        <blockquote class="rv">&ldquo;Photon wrangling: the orchestration of light as a <em>storytelling and perceptual medium.</em>&rdquo;</blockquote>
+        <p class="rv">From ILDA award-winning laser design to Disney Imagineering's 3D scanning laser display systems, light has always been both the medium and the message. Every project is a new experiment in how photons shape human perception.</p>
+      </div>
+      <div class="spectrum" aria-hidden="true"></div>
+    </div>
+  </section>
 
-  <div id="ilp-scroll">
-    <div id="ilp-scroll-line"></div>
-    <span>Scroll</span>
-  </div>
+  <section class="block work" id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="kicker">Selected Work</span><h2 id="work-h">Immersive Worlds</h2></div>
+        <p>Twenty years of orchestrating light, fire, space, and story: spanning pyrotechnic spectaculars, laser systems, themed environments, and museum experiences across five continents.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter the work"><button type="button" class="chip on" data-f="all" aria-pressed="true">All</button><button type="button" class="chip" data-f="laser" aria-pressed="false">Lasers</button><button type="button" class="chip" data-f="pyro" aria-pressed="false">Pyrotechnics</button><button type="button" class="chip" data-f="tech" aria-pressed="false">Immersive & Tech</button><button type="button" class="chip" data-f="museum" aria-pressed="false">Museums</button></div>
+      <section class="chapter" id="w-netflix" data-cats="tech"><header class="ch-head"><span class="ch-num">01</span><div><h3>Netflix Experiences</h3><span class="kicker">2025</span></div><p>Technical Management, Contract Position. Advancing experiential systems from early concept through live deployment across Philadelphia, Dallas, and Las Vegas.</p></header><div class="wgrid"><article class="wc wide" data-cat="tech"><a class="wc-hit" href="https://www.youtube.com/watch?v=Wq5AwfxynS8" target="_blank" rel="noopener" aria-label="Netflix House Philadelphia: Drone Fly-Through (opens in a new tab)"><span class="wc-media"><img src="https://i.ytimg.com/vi/Wq5AwfxynS8/hqdefault.jpg" alt="Drone fly-through of Netflix House Philadelphia" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z"/></svg>Watch</span></span><span class="wc-body"><span class="kicker">Netflix Experiences · 2025</span><span class="wc-title">Netflix House Philadelphia: Drone Fly-Through</span></span></a></article></div></section><section class="chapter" id="w-ncrm" data-cats="museum"><header class="ch-head"><span class="ch-num">02</span><div><h3>National Civil Rights Museum</h3><span class="kicker">Memphis, TN · Opening Spring 2026</span></div><p>Creative Director, Art Processors. I led interpretive design and narrative systems for the Legacy Building renovation, translating Dr. King&#x27;s 1967 vision of &quot;Where Do We Go From Here&quot; into five immersive gallery experiences exploring poverty, education, housing, gender equity, and nonviolence. The work required designing emotional journeys through living history with equal parts rigor and care.</p></header><div class="wgrid"><article class="wc wide" data-cat="museum"><a class="wc-hit" href="https://www.youtube.com/watch?v=GL29uNEZTdc" target="_blank" rel="noopener" aria-label="National Civil Rights Museum (opens in a new tab)"><span class="wc-media"><img src="https://i.ytimg.com/vi/GL29uNEZTdc/hqdefault.jpg" alt="National Civil Rights Museum video" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z"/></svg>Watch</span></span><span class="wc-body"><span class="kicker">Museum Design · Memphis, TN</span><span class="wc-title">National Civil Rights Museum</span><p>The Legacy Building reopens Spring 2026.</p></span></a></article><article class="wc " data-cat="museum"><button class="wc-hit" type="button" data-full="https://lh3.googleusercontent.com/d/1_3-68JLxWwvveWaMzAnFbUMIZudDIn4l=w1600" data-cap="At the Lorraine Motel" aria-label="At the Lorraine Motel, open photo"><span class="wc-media"><img src="https://lh3.googleusercontent.com/d/1_3-68JLxWwvveWaMzAnFbUMIZudDIn4l=w1200" alt="The Lorraine Motel, home of the National Civil Rights Museum, Memphis" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge">Photo</span></span><span class="wc-body"><span class="kicker">On Site · Memphis, TN</span><span class="wc-title">At the Lorraine Motel</span></span></button></article></div></section><section class="chapter" id="w-meowwolf" data-cats="tech"><header class="ch-head"><span class="ch-num">03</span><div><h3>Meow Wolf</h3><span class="kicker">2019 to 2023</span></div><p>Senior Creative Director across three permanent immersive installations, including an IAAPA Honors win for the top location-based experience in the world.</p></header><div class="wgrid"><article class="wc wide" data-cat="tech"><button class="wc-hit" type="button" data-full="img/theta-stage.jpg" data-cap="Theta Theater, Radio Tave" aria-label="Theta Theater, Radio Tave, open photo"><span class="wc-media"><img src="img/theta-stage.jpg" alt="Theta Theater stage glowing under blacklight, with iridescent rock forms and an eclipse ring" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge">Photo</span></span><span class="wc-body"><span class="kicker">Themed Entertainment · Meow Wolf · Houston</span><span class="wc-title">Theta Theater, Radio Tave</span><p>Creative lead over Theta Theater. I initiated a vendor partnership to develop a proprietary color mapping formula, revealing a completely hidden visual layer under UV light.</p></span></button></article><article class="wc " data-cat="tech"><button class="wc-hit" type="button" data-full="https://lh3.googleusercontent.com/d/1Jnf9tQ7RPfQtBjFwRG2q9eRJHfy0YNh9" data-cap="Radio Tave" aria-label="Radio Tave, open photo"><span class="wc-media"><img src="https://lh3.googleusercontent.com/d/1Jnf9tQ7RPfQtBjFwRG2q9eRJHfy0YNh9" alt="Meow Wolf Radio Tave, Houston" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge">Photo</span></span><span class="wc-body"><span class="kicker">Themed Entertainment · Meow Wolf · Houston</span><span class="wc-title">Radio Tave</span><p>Senior Creative Director. Meow Wolf Houston. Permanent installation.</p></span></button></article><article class="wc " data-cat="tech"><button class="wc-hit" type="button" data-full="img/theta-room.jpg" data-cap="Theta Theater" aria-label="Theta Theater, open photo"><span class="wc-media"><img src="img/theta-room.jpg" alt="Theta Theater room under UV light, with glowing columns and a reflective floor" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge">Photo</span></span><span class="wc-body"><span class="kicker">Themed Entertainment · Meow Wolf · Houston</span><span class="wc-title">Theta Theater</span></span></button></article><article class="wc " data-cat="tech"><button class="wc-hit" type="button" data-full="https://lh3.googleusercontent.com/d/185VQG-qg8vb82UTMBm97HWkNJrY6PnFH" data-cap="The Real Unreal" aria-label="The Real Unreal, open photo"><span class="wc-media"><img src="https://lh3.googleusercontent.com/d/185VQG-qg8vb82UTMBm97HWkNJrY6PnFH" alt="Meow Wolf The Real Unreal, Grapevine, Texas" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge">Photo</span></span><span class="wc-body"><span class="kicker">Themed Entertainment · Meow Wolf · 2022</span><span class="wc-title">The Real Unreal</span><p>IAAPA Honors 2025. Top Location-Based Experience in the World. Senior Creative Director.</p></span></button></article><article class="wc " data-cat="tech"><button class="wc-hit" type="button" data-full="https://lh3.googleusercontent.com/d/19RRBjAc95VLyAkIs7oij5Zgn5nRHx6II" data-cap="The Real Unreal" aria-label="The Real Unreal, open photo"><span class="wc-media"><img src="https://lh3.googleusercontent.com/d/19RRBjAc95VLyAkIs7oij5Zgn5nRHx6II" alt="Meow Wolf The Real Unreal, Grapevine, Texas" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge">Photo</span></span><span class="wc-body"><span class="kicker">Themed Entertainment · Meow Wolf · 2022</span><span class="wc-title">The Real Unreal</span><p>Grapevine, TX. Permanent installation.</p></span></button></article><article class="wc " data-cat="tech"><button class="wc-hit" type="button" data-full="https://lh3.googleusercontent.com/d/1VmX12eRXqgD2T-Sqwp9IjvItfEYJ2ciB" data-cap="Product Development" aria-label="Product Development, open photo"><span class="wc-media"><img src="https://lh3.googleusercontent.com/d/1VmX12eRXqgD2T-Sqwp9IjvItfEYJ2ciB" alt="Meow Wolf product development" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge">Photo</span></span><span class="wc-body"><span class="kicker">Creative Development · Meow Wolf</span><span class="wc-title">Product Development</span></span></button></article><article class="wc " data-cat="tech"><button class="wc-hit" type="button" data-full="https://lh3.googleusercontent.com/d/1pKaLqpWXH2tHJMDqvz2bcrDkWyh1KRDi" data-cap="Product Development" aria-label="Product Development, open photo"><span class="wc-media"><img src="https://lh3.googleusercontent.com/d/1pKaLqpWXH2tHJMDqvz2bcrDkWyh1KRDi" alt="Meow Wolf product development" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge">Photo</span></span><span class="wc-body"><span class="kicker">Creative Development · Meow Wolf</span><span class="wc-title">Product Development</span></span></button></article></div><div class="feature"><div class="ft-text"><span class="kicker">Product Design · Meow Wolf · House of Eternal Return · Santa Fe</span><h4>A fan that&#x27;s three things at once: IP affinity object, live exhibition activator, and at-home AR portal.</h4><p>Guests who loved the Obsidiopolis world could purchase a fan embedded with RFID, triggering a real-time state change in the room when brought near the activation point. Flip it over and a QR code unlocks an AR overlay at home, deepening their connection to the IP long after they leave. Beautiful Obsidiopolis art on the outside, magic on the inside.</p></div><div class="wgrid"><article class="wc " data-cat="tech"><a class="wc-hit" href="https://www.youtube.com/shorts/HKqZFHuvDOo" target="_blank" rel="noopener" aria-label="The Obsidiopolis Fan (opens in a new tab)"><span class="wc-media"><img src="https://i.ytimg.com/vi/HKqZFHuvDOo/hqdefault.jpg" alt="The Obsidiopolis Fan" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z"/></svg>Watch</span></span><span class="wc-body"><span class="kicker">Product Design · House of Eternal Return</span><span class="wc-title">The Obsidiopolis Fan</span><p>RFID-embedded fan with Obsidiopolis art. Triggers a room state change in the exhibition and unlocks an AR story at home via QR.</p></span></a></article><article class="wc " data-cat="tech"><a class="wc-hit" href="https://www.youtube.com/watch?v=E6kwTZan-U4" target="_blank" rel="noopener" aria-label="Fan Activates the Room (opens in a new tab)"><span class="wc-media"><img src="https://i.ytimg.com/vi/E6kwTZan-U4/hqdefault.jpg" alt="Fan activating the room" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z"/></svg>Watch</span></span><span class="wc-body"><span class="kicker">Interactive · RFID State Change · In Exhibition</span><span class="wc-title">Fan Activates the Room</span><p>Bringing the fan near the activation point triggers a live AVL state change inside the Obsidiopolis exhibition space.</p></span></a></article></div></div><div class="feature"><div class="ft-text"><span class="kicker">House of Eternal Return · COVID Era · 2020 to 2021</span><h4>The exhibit was closed. The work didn&#x27;t stop.</h4><p>When COVID shuttered House of Eternal Return, I made it my mission to keep our team creating and our fans connected. We launched Robot Radio, a live parking lot radio station with a temporary technology installation that awakened the robot outside the building. We designed AR filters so fans could bring the Meow Wolf universe into their homes. We remodeled the retail, F&amp;B, and bathroom spaces, redesigned guest flow, and built no-touch QR storytelling collectibles for the eventual reopening. The portal was closed. But the world kept growing.</p></div><div class="wgrid"><article class="wc wide" data-cat="tech"><button class="wc-hit" type="button" data-full="img/robot-radio.jpg" data-cap="Robot Radio" aria-label="Robot Radio, open photo"><span class="wc-media"><img src="img/robot-radio.jpg" alt="The Meow Wolf robot outside House of Eternal Return in the snow, eyes and chest panel glowing" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge">Photo</span></span><span class="wc-body"><span class="kicker">Meow Wolf · COVID Activation · 2020</span><span class="wc-title">Robot Radio</span><p>When the exhibit closed, I created a parking lot radio station so fans could still gather, with a temporary LED screen installed in the robot to accompany the launch.</p></span></button></article><article class="wc wide" data-cat="tech"><button class="wc-hit" type="button" data-full="img/mw-retail.jpg" data-cap="F&amp;B &amp; Retail Renovation" aria-label="F&amp;B &amp; Retail Renovation, open photo"><span class="wc-media"><img src="img/mw-retail.jpg" alt="Iridescent crystal archway entrance to the Meow Wolf shop" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge">Photo</span></span><span class="wc-body"><span class="kicker">Meow Wolf · Renovation · 2020</span><span class="wc-title">F&amp;B &amp; Retail Renovation</span><p>Led the redesign of the F&amp;B and retail spaces at House of Eternal Return during the COVID-era closure.</p></span></button></article><article class="wc " data-cat="tech"><a class="wc-hit" href="https://www.youtube.com/watch?v=PfowfnhI7MU" target="_blank" rel="noopener" aria-label="House of Eternal Return: Upgraded (opens in a new tab)"><span class="wc-media"><img src="https://i.ytimg.com/vi/PfowfnhI7MU/hqdefault.jpg" alt="House of Eternal Return: Upgraded" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z"/></svg>Watch</span></span><span class="wc-body"><span class="kicker">Meow Wolf · Renovation · 2021</span><span class="wc-title">House of Eternal Return: Upgraded</span><p>Tour and interview showcasing the COVID-era renovations: new F&amp;B and retail areas, pathway redesign, and no-touch QR storytelling experiences.</p></span></a></article><article class="wc " data-cat="tech"><a class="wc-hit" href="https://www.youtube.com/watch?v=JZldQyPpDs0" target="_blank" rel="noopener" aria-label="The Portal Is Now Open (opens in a new tab)"><span class="wc-media"><img src="https://i.ytimg.com/vi/JZldQyPpDs0/hqdefault.jpg" alt="The Portal Is Now Open" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z"/></svg>Watch</span></span><span class="wc-body"><span class="kicker">Meow Wolf · Marketing · 2021</span><span class="wc-title">The Portal Is Now Open</span><p>Led the reopening marketing campaign for House of Eternal Return following the COVID-era renovation and redesign.</p></span></a></article></div></div></section><section class="chapter" id="w-wdi" data-cats="tech"><header class="ch-head"><span class="ch-num">04</span><div><h3>Walt Disney Imagineering</h3><span class="kicker">2014 to 2019</span></div><p>Five years, four continents, five THEA Awards, and a U.S. patent. Bringing perception-driven systems to the world&#x27;s most ambitious theme park attractions.</p></header><div class="wgrid"><article class="wc " data-cat="tech"><a class="wc-hit" href="https://www.youtube.com/watch?v=JBg2G7ok_Ig" target="_blank" rel="noopener" aria-label="Pirates of the Caribbean: Battle for the Sunken Treasure (opens in a new tab)"><span class="wc-media"><img src="https://i.ytimg.com/vi/JBg2G7ok_Ig/hqdefault.jpg" alt="Pirates of the Caribbean: Battle for the Sunken Treasure" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z"/></svg>Watch</span></span><span class="wc-body"><span class="kicker">Image Engineering · Shanghai Disneyland · 2016</span><span class="wc-title">Pirates of the Caribbean: Battle for the Sunken Treasure</span><p>THEA Award 2017. Imaging Engineer and Color Scientist on the Shanghai Disneyland opening team. One of the most technically ambitious dark rides ever built.</p></span></a></article><article class="wc " data-cat="tech"><a class="wc-hit" href="https://www.youtube.com/watch?v=8Kq4_z4A6g0" target="_blank" rel="noopener" aria-label="Avatar: Flight of Passage (opens in a new tab)"><span class="wc-media"><img src="https://i.ytimg.com/vi/8Kq4_z4A6g0/hqdefault.jpg" alt="Avatar: Flight of Passage ride POV" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z"/></svg>Watch</span></span><span class="wc-body"><span class="kicker">Themed Entertainment · Disney Imagineering · 2017</span><span class="wc-title">Avatar: Flight of Passage</span><p>THEA Award 2018 · VES Award 2018 for Outstanding Visual Effects in a Special Venue. I conducted applied R&amp;D on perception-driven systems, using optical modeling and human sensory response to design a 3D image engineering system that puts riders on the back of a banshee at 10K resolution, 60fps stereo.</p></span></a></article><article class="wc " data-cat="tech"><a class="wc-hit" href="https://www.youtube.com/watch?v=CcM7Q9XrsEw" target="_blank" rel="noopener" aria-label="Star Wars: Rise of the Resistance (opens in a new tab)"><span class="wc-media"><img src="https://i.ytimg.com/vi/CcM7Q9XrsEw/hqdefault.jpg" alt="Star Wars: Rise of the Resistance" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z"/></svg>Watch</span></span><span class="wc-body"><span class="kicker">Themed Entertainment · Disney Imagineering · 2019</span><span class="wc-title">Star Wars: Rise of the Resistance</span><p>THEA Award 2021. Lead Special Effects Designer and Video Talent. One of the most technically complex theme park experiences ever built, combining practical effects, projection, pyrotechnics, and live action performance across a continuous 28-minute narrative.</p></span></a></article></div></section><section class="chapter" id="w-ie" data-cats="laser pyro"><header class="ch-head"><span class="ch-num">05</span><div><h3>Image Engineering</h3><span class="kicker">2008 to 2014</span></div><p>Where it all began: pyrotechnics, lasers, and live spectaculars that laid the foundation for everything that followed.</p></header><div class="wgrid"><article class="wc wide" data-cat="pyro"><button class="wc-hit" type="button" data-full="img/jets-aerial.jpg" data-cap="New York Jets Stadium Opening" aria-label="New York Jets Stadium Opening, open photo"><span class="wc-media"><img src="img/jets-aerial.jpg" alt="Aerial view of the New York Jets stadium opening, with red, white and blue fireworks around the rim" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge">Photo</span></span><span class="wc-body"><span class="kicker">Pyrotechnics · Live Event</span><span class="wc-title">New York Jets Stadium Opening</span><p>Lead Pyrotechnic Programmer and Designer.</p></span></button></article><article class="wc tall" data-cat="pyro"><button class="wc-hit" type="button" data-full="img/baltimore-sun-2009.jpg" data-cap="Holiday lights at the Washington Monument" aria-label="Holiday lights at the Washington Monument, open photo"><span class="wc-media"><img src="img/baltimore-sun-2009.jpg" alt="Baltimore Sun front page photo of fireworks and lasers around the Washington Monument" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge">Press</span></span><span class="wc-body"><span class="kicker">The Baltimore Sun · Front page · December 4, 2009</span><span class="wc-title">Holiday lights at the Washington Monument</span><p>Mount Vernon Place, Baltimore. Lead Pyrotechnic Designer and Pyrotechnician, Image Engineering.</p></span></button></article><article class="wc " data-cat="pyro"><a class="wc-hit" href="https://www.youtube.com/watch?v=O1Xeuf7tURQ" target="_blank" rel="noopener" aria-label="Christina Aguilera on Oprah, Radio City Music Hall (opens in a new tab)"><span class="wc-media"><img src="https://i.ytimg.com/vi/O1Xeuf7tURQ/hqdefault.jpg" alt="Christina Aguilera on Oprah" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z"/></svg>Watch</span></span><span class="wc-body"><span class="kicker">Pyrotechnics · Live Entertainment · 2010</span><span class="wc-title">Christina Aguilera on Oprah, Radio City Music Hall</span><p>SFX design and execution for Christina Aguilera&#x27;s &quot;Not Myself Tonight&quot; performance on the Oprah Show, Radio City Music Hall, May 2010.</p></span></a></article><article class="wc " data-cat="laser"><a class="wc-hit" href="https://www.youtube.com/watch?v=LAbcsYufqLE" target="_blank" rel="noopener" aria-label="Adult Swim Upfront at Roseland Ballroom (opens in a new tab)"><span class="wc-media"><img src="https://i.ytimg.com/vi/LAbcsYufqLE/hqdefault.jpg" alt="Adult Swim Upfront" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z"/></svg>Watch</span></span><span class="wc-body"><span class="kicker">Lasers · 2011</span><span class="wc-title">Adult Swim Upfront at Roseland Ballroom</span><p>Lead Laser Programmer and Designer. Laser design and programming for the Adult Swim Upfront at Roseland Ballroom for media buyers and network stakeholders.</p></span></a></article><article class="wc wide" data-cat="pyro"><button class="wc-hit" type="button" data-full="img/kevin-hart-set.jpg" data-cap="Kevin Hart: Let Me Explain Tour" aria-label="Kevin Hart: Let Me Explain Tour, open photo"><span class="wc-media"><img src="img/kevin-hart-set.jpg" alt="Kevin Hart on the Let Me Explain set with flame effects" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge">Photo</span></span><span class="wc-body"><span class="kicker">Pyrotechnics · Live Entertainment · 2013</span><span class="wc-title">Kevin Hart: Let Me Explain Tour</span><p>SFX Production Director. Lasers and flame effects for a nationwide arena tour.</p></span></button></article><article class="wc " data-cat="pyro"><button class="wc-hit" type="button" data-full="img/kevin-hart-flames.jpg" data-cap="Kevin Hart: Let Me Explain Tour" aria-label="Kevin Hart: Let Me Explain Tour, open photo"><span class="wc-media"><img src="img/kevin-hart-flames.jpg" alt="Kevin Hart onstage between flame columns and low fog" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge">Photo</span></span><span class="wc-body"><span class="kicker">Pyrotechnics · Live Entertainment · 2013</span><span class="wc-title">Kevin Hart: Let Me Explain Tour</span><p>SFX Production Director. Lasers and flame effects for a nationwide arena tour.</p></span></button></article><article class="wc " data-cat="pyro"><button class="wc-hit" type="button" data-full="https://i.imgur.com/E2kJeNZ.jpg" data-cap="Kevin Hart: Let Me Explain Tour" aria-label="Kevin Hart: Let Me Explain Tour, open photo"><span class="wc-media"><img src="https://i.imgur.com/E2kJeNZ.jpg" alt="Kevin Hart Let Me Explain tour effects" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge">Photo</span></span><span class="wc-body"><span class="kicker">Pyrotechnics · Live Entertainment · 2013</span><span class="wc-title">Kevin Hart: Let Me Explain Tour</span><p>SFX Production Director. Lasers and flame effects for a nationwide arena tour.</p></span></button></article><article class="wc wide" data-cat="laser"><a class="wc-hit" href="https://vimeo.com/61293795" target="_blank" rel="noopener" aria-label="Rihanna: 777 Tour (opens in a new tab)"><span class="wc-media"><img src="img/rihanna-777.jpg" alt="Green and blue laser beams over the Rihanna 777 Tour stage" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z"/></svg>Watch on Vimeo</span></span><span class="wc-body"><span class="kicker">Lasers · Live Entertainment · 2012</span><span class="wc-title">Rihanna: 777 Tour</span><p>Laser Programmer. Seven cities, seven nights, seven countries.</p></span></a></article><article class="wc " data-cat="laser"><button class="wc-hit" type="button" data-full="img/hillsong.jpg" data-cap="Hillsong United" aria-label="Hillsong United, open photo"><span class="wc-media"><img src="img/hillsong.jpg" alt="Hillsong United onstage under green laser beams and a triangular video wall" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge">Photo</span></span><span class="wc-body"><span class="kicker">Lasers · Live Entertainment</span><span class="wc-title">Hillsong United</span></span></button></article><article class="wc " data-cat="laser"><a class="wc-hit" href="https://vimeo.com/57241252/68e8acf2fe" target="_blank" rel="noopener" aria-label="Nashville Predators: Laser on Ice (opens in a new tab)"><span class="wc-media is-empty"><span class="beams" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="wc-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z"/></svg>Watch on Vimeo</span></span><span class="wc-body"><span class="kicker">Lasers · Live Sports · 2012</span><span class="wc-title">Nashville Predators: Laser on Ice</span><p>Lead Laser Designer and Programmer. Full-ice laser spectacular for the Nashville Predators.</p></span></a></article><article class="wc " data-cat="laser"><a class="wc-hit" href="https://vimeo.com/177073380" target="_blank" rel="noopener" aria-label="Baltimore Power Plant Holiday Light Show (opens in a new tab)"><span class="wc-media is-empty"><span class="beams" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="wc-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z"/></svg>Watch on Vimeo</span></span><span class="wc-body"><span class="kicker">Pyrotechnics · Lasers · 2013</span><span class="wc-title">Baltimore Power Plant Holiday Light Show</span><p>Creative Director. Laser graphics and pyro programming. ILDA 2013, 1st Place.</p></span></a></article><article class="wc " data-cat="laser"><a class="wc-hit" href="https://vimeo.com/124423728" target="_blank" rel="noopener" aria-label="Philadelphia Academy of Natural Sciences Bicentennial (opens in a new tab)"><span class="wc-media is-empty"><span class="beams" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="wc-badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z"/></svg>Watch on Vimeo</span></span><span class="wc-body"><span class="kicker">Lasers · Live Event · 2013</span><span class="wc-title">Philadelphia Academy of Natural Sciences Bicentennial</span><p>Laser Programmer and Creative Director. Bicentennial celebration for America&#x27;s oldest natural science museum.</p></span></a></article><article class="wc " data-cat="pyro"><button class="wc-hit" type="button" data-full="img/ravens-aerial.jpg" data-cap="Baltimore Ravens, M&amp;T Bank Stadium" aria-label="Baltimore Ravens, M&amp;T Bank Stadium, open photo"><span class="wc-media"><img src="img/ravens-aerial.jpg" alt="Aerial view of M&amp;T Bank Stadium ringed with fireworks" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge">Photo</span></span><span class="wc-body"><span class="kicker">Pyrotechnics · Live Sports</span><span class="wc-title">Baltimore Ravens, M&amp;T Bank Stadium</span></span></button></article><article class="wc " data-cat="pyro"><button class="wc-hit" type="button" data-full="img/ravens-field.jpg" data-cap="Baltimore Ravens" aria-label="Baltimore Ravens, open photo"><span class="wc-media"><img src="img/ravens-field.jpg" alt="Fireworks over the field at a Baltimore Ravens game" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge">Photo</span></span><span class="wc-body"><span class="kicker">Pyrotechnics · Live Sports</span><span class="wc-title">Baltimore Ravens</span></span></button></article><article class="wc " data-cat="pyro"><button class="wc-hit" type="button" data-full="img/seahawks.jpg" data-cap="Seattle Seahawks" aria-label="Seattle Seahawks, open photo"><span class="wc-media"><img src="img/seahawks.jpg" alt="Fireballs over the Seattle Seahawks player tunnel" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.wc-media').classList.add('is-empty');this.remove()"><span class="wc-badge">Photo</span></span><span class="wc-body"><span class="kicker">Pyrotechnics · Live Sports</span><span class="wc-title">Seattle Seahawks</span></span></button></article></div></section>
+    </div>
+  </section>
+
+  <section class="block about" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="about-grid">
+        <figure class="portrait rv" style="margin:0"><img src="img/portrait.jpg" alt="Genell smiling between two llamas in tasseled harnesses at Rainbow Mountain, Peru" loading="lazy"><figcaption>Fieldwork · Rainbow Mountain, Peru</figcaption></figure>
+        <div class="about-copy">
+          <span class="kicker">About Genell</span>
+          <h2 id="about-h">Creative technologist, <span class="grad">inventor,</span> <span class="grad2">biomimic.</span></h2>
+          <p class="lead">Genell Zuciya is a creative technologist, inventor, biomimicry professional and experiential creative director with nearly two decades of work across Walt Disney Imagineering, Netflix, and Meow Wolf. She specializes in large-scale immersive design, innovation strategy, and concept-to-deployment development at the intersection of technology, storytelling, and systems thinking.</p>
+          <p class="lead">She has a Master's in Biomimicry and has done field work in 6 different ecosystems. As the Founder of <a href="https://www.nexuslabspace.com" target="_blank" rel="noopener">Nexus Lab Space</a>, Genell is always looking to collaborate through roles in experiential innovation and human-centered design.</p>
+          <blockquote class="quote"><p>&ldquo;Genell is a great creative professional with high-level skills in laser and pyrotechnic show design and execution. She is client-focused, detail-oriented, a great team player, and a joy to work with!&rdquo;</p><cite>Mario D'Ambrosio</cite></blockquote>
+          <div class="h-actions"><a class="btn btn-hot" href="#contact">Get in touch</a><a class="btn" href="https://drive.google.com/file/d/14z5Sh1R63Wt98lkjOU48gYLhTO13leLC/view?usp=sharing" target="_blank" rel="noopener">Download resume (PDF)</a></div>
+        </div>
+      </div>
+      <figure class="bench rv"><img src="img/optics-bench.jpg" alt="Genell aligning components on an optical bench in a photonics lab" loading="lazy"><figcaption>Photonics · precision optics bench work</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="block resume" id="resume" aria-labelledby="resume-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="kicker">Resume</span><h2 id="resume-h">A Systems Thinker's Journey</h2></div>
+        <div style="display:grid;gap:1.2rem;justify-items:start"><p>Across disciplines, frameworks, and continents, each chapter builds on the last. Click any chapter below to explore the combined paths that paint the picture of who I am and how I work.</p><a class="btn btn-hot" href="https://drive.google.com/file/d/14z5Sh1R63Wt98lkjOU48gYLhTO13leLC/view?usp=sharing" target="_blank" rel="noopener">Download resume (PDF)</a></div>
+      </div>
+      <div class="legend" aria-hidden="true"><span><i style="background:#ffb547"></i>Roles</span><span><i style="background:var(--elec)"></i>Learning</span><span><i style="background:var(--green)"></i>Ventures</span><span><i style="background:var(--purple)"></i>Leadership &amp; Service</span></div>
+      <div class="tlist"><details class="tl role"><summary><span class="tl-dot" aria-hidden="true"></span><span class="tl-date">May 2025 to Present</span><span class="tl-title">Netflix</span><span class="tl-role">Technology Management, Experiences Division (Contract)</span><span class="tl-desc">I advance experiential systems based on Netflix IP from early concept through live deployment, bridging creative vision and technical execution at scale.</span><span class="tl-toggle" aria-hidden="true"></span></summary><div class="tl-body"><div class="rg"><span class="kicker">Projects</span><ul><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Netflix House Philadelphia</b><span>Opened November 2025 · Led technical and operational remediation in real-world environments · Created and documented processes for factory acceptance testing and site acceptance testing</span></span></li><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Netflix House Dallas</b><span>Opened December 2025 · Led technical and operational remediation in real-world environments · Created and documented processes for factory acceptance testing and site acceptance testing</span></span></li><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Netflix House Las Vegas</b><span>In development · Contributing to blue sky and concept-level technical infrastructure planning</span></span></li></ul></div><div class="rg"><span class="kicker">Innovation &amp; Leadership</span><ul><li class="ri learning"><span class="ri-ic" aria-hidden="true">✦</span><span><b>Systemic Failure-Point Analysis &amp; Rapid Mitigation</b><span>I identify systemic failure points across vendors and platforms · Leading rapid mitigation strategies to stabilize and scale new experiences · Leveraging agentic AI for deeper systems analysis</span></span></li></ul></div><div class="tags"><span>Technology Management</span><span>Experiential</span><span>Systems Integration</span><span>Live Deployment</span><span>Agentic AI</span><span>Blue Sky</span><span>Vendor Management</span><span>Scale</span></div></div></details><details class="tl role"><summary><span class="tl-dot" aria-hidden="true"></span><span class="tl-date">Aug 2023 to Feb 2025</span><span class="tl-title">Art Processors</span><span class="tl-role">Creative Director, Citizen Designer</span><span class="tl-desc">I directed interpretive design and museum experiences that make science and history accessible, spark dialogue, and empower communities.</span><span class="tl-toggle" aria-hidden="true"></span></summary><div class="tl-body"><div class="rg"><span class="kicker">Key Projects</span><ul><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>National Civil Rights Museum</b><span>Memphis, TN · Opening 2026 · I led creative direction of interpretive narrative interactives, grounded in emotional journey mapping to determine the most impactful delivery for each story, including contributions from my own family history</span></span></li><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Louisiana Music Museum</b><span>Lafayette, LA · I led the creative vision for a winning proposal in a highly competitive market to tell the story of Louisiana&#x27;s music history</span></span></li></ul></div><div class="rg"><span class="kicker">Personal Development</span><ul><li class="ri cert"><span class="ri-ic" aria-hidden="true">●</span><span><b>Certified Death Doula</b><span>Working on memorial sites required me to make peace with death in order to tell those stories with authenticity and care</span></span></li><li class="ri learning"><span class="ri-ic" aria-hidden="true">✦</span><span><b>Banjo Fellow, Oakland Public Conservatory of Music</b><span>I began studying banjo in Apr 2024 to reconnect with my African American cultural roots while working on the Civil Rights Museum · Applied May 2025, accepted Oct 2025 · Currently performing in the 2026 fellowship cohort</span></span></li></ul></div><div class="tags"><span>Museum Design</span><span>Interpretive</span><span>Death Doula</span><span>Banjo Fellow</span><span>Community</span></div></div></details><details class="tl role"><summary><span class="tl-dot" aria-hidden="true"></span><span class="tl-date">Dec 2019 to May 2023</span><span class="tl-title">Meow Wolf</span><span class="tl-role">Senior Creative Director</span><span class="tl-desc">I led immersive, world-building experiences through holocratic creative frameworks, decentralized decision-making, nonlinear storytelling, and custom interactive design.</span><span class="tl-toggle" aria-hidden="true"></span></summary><div class="tl-body"><div class="rg"><span class="kicker">Installations</span><ul><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>House of Eternal Return</b><span>Santa Fe, NM · I led the COVID-era redesign: F&amp;B and retail area redesign, exhibition pinch point analysis and pathway redesign, low and no-touch QR storytelling collectibles, parking lot activations while the main exhibit was closed</span></span></li><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>The Real Unreal</b><span>Grapevine, TX · Led immersive world-building from concept through opening</span></span></li><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Radio Tave</b><span>Houston, TX · Directed new narrative &amp; IP development · Led two additional creative directors in the vision of their spaces · Creative lead over Theta Theater, co-creative lead over Cowboix Hevvven and Obsidiodessey</span></span></li></ul></div><div class="rg"><span class="kicker">Innovation</span><ul><li class="ri learning"><span class="ri-ic" aria-hidden="true">✦</span><span><b>Blacklight Color Mapping, Product Design (Theta Theater)</b><span>Creative Director · I initiated a vendor partnership to develop a proprietary color mapping formula, revealing a completely hidden visual layer under UV light</span></span></li><li class="ri learning"><span class="ri-ic" aria-hidden="true">✦</span><span><b>Obsidiopolis Fans: RFID Activation Object</b><span>Product design · I directed the design of purchasable fans with embedded RFID that triggered AVL state changes in-room, plus a QR code unlocking an AR portal at home to deepen the guest&#x27;s connection with the IP</span></span></li></ul></div><div class="rg"><span class="kicker">Awards</span><ul><li class="ri award"><span class="ri-ic" aria-hidden="true">★</span><span><b>IAAPA Honors 2025: Top Location-Based Experience Project: Meow Wolf Grapevine</b><span>Role: Senior Creative Director</span></span></li></ul></div><div class="tags"><span>World-Building</span><span>Interactive</span><span>Product Design</span><span>RFID</span><span>AR</span><span>QR</span><span>Color Science</span><span>COVID Adaptation</span><span>IAAPA Award</span><span>Holacracy</span><span>Storytelling</span></div></div></details><details class="tl role"><summary><span class="tl-dot" aria-hidden="true"></span><span class="tl-date">May 2014 to Dec 2019</span><span class="tl-title">Walt Disney Imagineering</span><span class="tl-role">Lead Imaging &amp; Electronic Engineer</span><span class="tl-desc">I directed the development of custom optical illusions, projection systems, and animation technologies for world-class Disney park attractions across four continents.</span><span class="tl-toggle" aria-hidden="true"></span></summary><div class="tl-body"><p class="thread">Systems thinking in action: Each new global assignment demanded not just technical skill, but cultural fluency. I pursued language study and technical certifications in parallel to prepare for each challenge.</p><div class="rg"><span class="kicker">Certifications &amp; Study</span><ul><li class="ri cert"><span class="ri-ic" aria-hidden="true">●</span><span><b>Certificate of Proficiency, Precision Optics</b><span>Irvine Valley College (IVC) · Advanced study in precision optics to support global deployment</span></span></li><li class="ri cert"><span class="ri-ic" aria-hidden="true">●</span><span><b>Certificate of Proficiency, Photonics</b><span>Irvine Valley College (IVC) · Advanced study in photonics to support imaging technology development</span></span></li><li class="ri learning"><span class="ri-ic" aria-hidden="true">✦</span><span><b>Mandarin Language Study</b><span>Strategic language acquisition ahead of Shanghai deployment</span></span></li><li class="ri learning"><span class="ri-ic" aria-hidden="true">✦</span><span><b>French Language Study</b><span>Strategic language acquisition ahead of Paris deployment</span></span></li></ul></div><div class="rg"><span class="kicker">Attractions &amp; Installations</span><ul><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Shanghai Disney Resort</b><span>Relocated to Shanghai for 8 months to lead special effects teams through base park build and finish · Led special effects (laser and flame) and imaging engineering across Pirates of the Caribbean: Battle for the Sunken Treasure, TRON Lightcycle Power Run, Castle Storybook Experience, Seven Dwarfs Mine Train, and Soarin&#x27; Around the World · Developed animation for Voyage to the Crystal Grotto, handing off to VFX teams for field implementation · Led FX animation for Peter Pan and Seven Dwarfs Mine Train</span></span></li><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Disneyland Paris: Hyperspace Mountain</b><span>Led special effects design &amp; installation</span></span></li><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Hong Kong Disneyland: Hyperspace Mountain</b><span>Led special effects design &amp; installation</span></span></li><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Soarin&#x27; Around the World (Disney California Adventure)</b><span>Imaging technology specialist: alignment, boresight, and technical calibration</span></span></li><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Avatar Flight of Passage (Disney&#x27;s Animal Kingdom)</b><span>Imaging technology specialist: cutting-edge 3D alignment, boresight, and technical calibration</span></span></li><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Star Wars: Galaxy&#x27;s Edge, Rise of the Resistance</b><span>Lead special effects designer, animator, and integrator · CA &amp; FL installations</span></span></li><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Avengers Campus: Spider-Man Web Slingers</b><span>Lead imaging engineer</span></span></li></ul></div><div class="rg"><span class="kicker">Awards &amp; Patent</span><ul><li class="ri award"><span class="ri-ic" aria-hidden="true">★</span><span><b>THEA Award 2021: Star Wars: Rise of the Resistance</b><span>Outstanding Achievement · Role: Lead Special Effects Designer &amp; Video Talent</span></span></li><li class="ri award"><span class="ri-ic" aria-hidden="true">★</span><span><b>U.S. Patent (Granted 2018): 3D Scanning Laser Display Systems</b><span>Inventor · Scanning laser-based 3D display systems for viewers wearing 3D glasses</span></span></li><li class="ri award"><span class="ri-ic" aria-hidden="true">★</span><span><b>THEA Award 2018: Avatar: Flight of Passage</b><span>Outstanding Achievement (Pandora: The World of Avatar) · Role: Image Engineering</span></span></li><li class="ri award"><span class="ri-ic" aria-hidden="true">★</span><span><b>THEA Award 2017: Pirates of the Caribbean: Battle for the Sunken Treasure</b><span>Outstanding Achievement (Shanghai Disneyland) · Role: Special Effects &amp; Image Engineering</span></span></li></ul></div><div class="tags"><span>Optical Illusions</span><span>Photonics</span><span>U.S. Patent</span><span>3× THEA Award</span><span>Mandarin</span><span>French</span><span>Global</span></div></div></details><details class="tl role"><summary><span class="tl-dot" aria-hidden="true"></span><span class="tl-date">Mar 2008 to May 2014</span><span class="tl-title">Image Engineering</span><span class="tl-role">Special Effects Technician → Lead Pyrotechnic Designer → Director of Special Effects Design</span><span class="tl-desc">I joined the founding team of a startup special effects company, establishing the systems, workflows, and teams behind sports and touring effects from the ground up. Six years, two promotions, and leadership across every facet of large-scale live spectaculars.</span><span class="tl-toggle" aria-hidden="true"></span></summary><div class="tl-body"><p class="thread">Building from the ground up: Joining a startup meant learning everything: hands-on, fast, and across disciplines. This start with a cross-functional role helped cultivate my early systems thinking approach and fearless adaptability.</p><div class="rg"><span class="kicker">Career Progression</span><ul><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Special Effects Technician</b><span>Mar 2008 to Dec 2009 · Building foundational expertise across pyro, lasers, and live production</span></span></li><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Lead Pyrotechnic Designer</b><span>Jan 2010 to Dec 2011 · Directing fireworks design and overseeing show execution</span></span></li><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Director of Special Effects Design</b><span>Jan 2012 to May 2014 · Leading creative direction for laser, pyro, and video experiences</span></span></li></ul></div><div class="rg"><span class="kicker">Licenses &amp; Certifications</span><ul><li class="ri cert"><span class="ri-ic" aria-hidden="true">●</span><span><b>Pyrotechnic Licenses: Multi-State</b><span>Maryland, North Carolina, Delaware, New York</span></span></li><li class="ri cert"><span class="ri-ic" aria-hidden="true">●</span><span><b>ATF Federal Explosives License</b><span>Overseeing fireworks inventory and regulatory compliance</span></span></li></ul></div><div class="rg"><span class="kicker">Key Work</span><ul><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Kevin Hart: Let Me Explain, Special Effects Supervisor</b><span>IMDB credited · Laser &amp; flame effects for the concert film</span></span></li><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Laser Show Design &amp; Programming</b><span>Directed laser-based storytelling experiences</span></span></li><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Academy of Natural Sciences: Bicentennial</b><span>Developed proprietary presentation systems</span></span></li><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Large-Scale Video Experiences</b><span>Directed immersive video concept development &amp; installation</span></span></li></ul></div><div class="rg"><span class="kicker">Awards</span><ul><li class="ri award"><span class="ri-ic" aria-hidden="true">★</span><span><b>ILDA Award 2013: 1st Place, Multimedia Show with Laser Integration</b><span>Role: Creative Director &amp; Pyrotechnic Programmer</span></span></li></ul></div><div class="tags"><span>Lasers</span><span>Pyrotechnics</span><span>Video</span><span>ATF Licensed</span><span>ILDA Award</span><span>IMDB Credit</span><span>Live Events</span></div></div></details><details class="tl role"><summary><span class="tl-dot" aria-hidden="true"></span><span class="tl-date">2007 to 2009</span><span class="tl-title">IATSE Local #19, Baltimore</span><span class="tl-role">Stagehand · Video Technician · Licensed Pyrotechnician</span><span class="tl-desc">Dispatched across Baltimore&#x27;s premier venues including the Hippodrome Theatre, Lyric Baltimore, Merriweather Post Pavilion, and the Baltimore Convention Center. Primarily assigned to pyrotechnic and video crews operating LED wall systems and projection for touring Broadway productions, concerts, and large-scale events.</span><span class="tl-toggle" aria-hidden="true"></span></summary><div class="tl-body"><div class="tags"><span>Stagehand</span><span>Video</span><span>LED</span><span>Projection</span><span>Pyrotechnics</span><span>Live Events</span><span>Union</span></div></div></details></div><h3 class="tl-section">Education</h3><div class="tlist"><details class="tl learning"><summary><span class="tl-dot" aria-hidden="true"></span><span class="tl-date">2021 to 2025</span><span class="tl-title">Arizona State University</span><span class="tl-role">Master of Science, Biomimicry</span><span class="tl-desc">I studied living systems to inform regenerative design, social innovation, and sustainable futures.</span><span class="tl-toggle" aria-hidden="true"></span></summary><div class="tl-body"><div class="rg"><span class="kicker">Dual Track</span><ul><li class="ri cert"><span class="ri-ic" aria-hidden="true">●</span><span><b>Certified Biomimicry Professional, Biomimicry 3.8</b><span>I was selected to form a small sub-cohort from top performers in the master&#x27;s program · Over two years, we traveled to 6 ecosystems to practice biomimicry fieldwork and study local ecological systems</span></span></li></ul></div><div class="rg"><span class="kicker">Areas of Focus</span><ul><li class="ri learning"><span class="ri-ic" aria-hidden="true">✦</span><span><b>Nature-Inspired Design</b><span>Rigorous study of functions, forms, and biological systems across scales, from chemistry and material science to macro structures, translated into human-centered design applications</span></span></li><li class="ri learning"><span class="ri-ic" aria-hidden="true">✦</span><span><b>Regenerative &amp; Systems Thinking</b><span>Applied research in community resilience and equitable collaboration models</span></span></li><li class="ri learning"><span class="ri-ic" aria-hidden="true">✦</span><span><b>Bio-Inspired Social Innovation</b><span>Applied research in ecological intelligence for sustainable systems</span></span></li></ul></div><div class="rg"><span class="kicker">Graduate Thesis Project</span><ul><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>LeafQuest: NFC-Enabled Biomimicry Learning Game</b><span>I conceived, designed, and prototyped an interactive flashcard system with embedded NFC chips that teaches children (grades 3 to 7) about leaf morphology and systems thinking through gamified play · 4 scaffolded levels of NFC identification (shape → margin → venation → full morphology match) · Bioinspired hybrid feedback loops deliver multisensory light &amp; sound responses · Grounded in Universal Design for Learning, cognitive development research, and experiential graphic design</span></span></li></ul></div><div class="tags"><span>Biomimicry</span><span>Biomimicry Professional</span><span>6 Ecosystems</span><span>NFC</span><span>Product Design</span><span>Gamification</span><span>Regenerative Design</span><span>Systems Thinking</span></div></div></details></div><h4 class="kicker comm-h">Community &amp; Membership</h4><div class="comm"><div class="cc"><span class="cc-org">MISS</span><b>Minorities in Shark Sciences</b><p>Through my biomimicry studies, I found myself deeply connected to the systems and structures found in marine sciences; fluid dynamics, structural color, biological adaptations. I joined MISS to be part of a community dedicated to the preservation of shark and marine ecosystems and to support the next generation of minority scientists doing that work.</p><span class="kicker">Member since 2023</span></div><div class="cc"><span class="cc-org">AWG</span><b>Association for Women Geoscientists</b><p>I became deeply fascinated by paleoclimatology, the idea that an ecosystem&#x27;s entire narrative is written directly into the environment itself, readable through tree rings, ice cores, coral cores, and the geological record. I joined AWG and was awarded a scholarship to join them in field observations in Nova Scotia and Newfoundland.</p><span class="kicker">Member since 2023</span></div></div><div class="tlist"><details class="tl learning"><summary><span class="tl-dot" aria-hidden="true"></span><span class="tl-date">2003 to 2007</span><span class="tl-title">Drexel University</span><span class="tl-role">Bachelor of Science, Film &amp; Video</span><span class="tl-desc">Where it all began. My foundation in visual storytelling, production, and a hunger to see the world through a lens.</span><span class="tl-toggle" aria-hidden="true"></span></summary><div class="tl-body"><p class="thread">The through-line: A global instinct from the start. Studying Japanese language and film in Tokyo, then working on film sets in Greece, long before Disney would send me around the world.</p><div class="rg"><span class="kicker">Study Abroad</span><ul><li class="ri learning"><span class="ri-ic" aria-hidden="true">✦</span><span><b>Temple University Japan, Tokyo</b><span>Aug to Dec 2005 · Japanese language and film studies abroad</span></span></li></ul></div><div class="rg"><span class="kicker">Work Abroad</span><ul><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Indigo View, Crete, Greece</b><span>Apr to Sep 2006 · Film production abroad</span></span></li></ul></div><div class="tags"><span>Film &amp; Video</span><span>Japanese</span><span>Study Abroad</span><span>Production</span><span>Global</span></div></div></details></div><h3 class="tl-section">Ventures</h3><div class="tlist"><details class="tl project"><summary><span class="tl-dot" aria-hidden="true"></span><span class="tl-date">2025 to Present</span><span class="tl-title">Nexus Lab Space</span><span class="tl-role">Founding Director</span><span class="tl-desc">I founded a hands-on innovation hub where science, creativity, and community converge to create systems-level change. We guide organizations, communities, and individuals in turning bold ideas into purposeful action shaping sustainable and regenerative futures.</span><span class="tl-toggle" aria-hidden="true"></span></summary><div class="tl-body"><p class="thread">The nexus: A powerful central link where nature-inspired ideas, emerging technologies, and social impact strategies meet. From Legos to lasers, we use physical materials and immersive experimentation to spark bold thinking and tangible outcomes.</p><div class="rg"><span class="kicker">Approach</span><ul><li class="ri learning"><span class="ri-ic" aria-hidden="true">✦</span><span><b>Prototyping &amp; Physical Innovation</b><span>Combining real-world tools, rapid prototyping, and experimentation to move ideas from concept to tangible outcomes</span></span></li><li class="ri learning"><span class="ri-ic" aria-hidden="true">✦</span><span><b>Nature-Inspired &amp; Systems-Level Design</b><span>Applying biomimicry and complex adaptive systems thinking to design solutions that are both innovative and practical</span></span></li></ul></div><div class="tags"><span>Innovation</span><span>Prototyping</span><span>Biomimicry</span><span>Social Impact</span><span>Systems Thinking</span><span>Sustainability</span><span>Community</span></div></div></details></div><h3 class="tl-section">Leadership &amp; Service</h3><div class="tlist"><details class="tl leadership"><summary><span class="tl-dot" aria-hidden="true"></span><span class="tl-date">Nov 2025 to Present</span><span class="tl-title">International Spy Museum</span><span class="tl-role">Board of Directors</span><span class="tl-desc">Sought out for my immersive entertainment expertise, I guide the strategic vision of one of the nation&#x27;s most innovative museum experiences, where oftentimes covert pieces of history and historical psychology are explained in immersive ways.</span><span class="tl-toggle" aria-hidden="true"></span></summary><div class="tl-body"><div class="tags"><span>Board Leadership</span><span>Museum</span><span>Strategy</span><span>Experiential</span></div></div></details><details class="tl leadership"><summary><span class="tl-dot" aria-hidden="true"></span><span class="tl-date">2025 to Present</span><span class="tl-title">Santa Fe Tradfest</span><span class="tl-role">Board Member</span><span class="tl-desc">I joined the board of Santa Fe&#x27;s annual traditional music festival with a focus on organizational development and community impact, bringing systems thinking to bear on how a beloved cultural institution grows sustainably.</span><span class="tl-toggle" aria-hidden="true"></span></summary><div class="tl-body"><p class="thread">The through-line: Applying the same instinct for systems design and regenerative thinking I bring to large-scale experiential work to a grassroots cultural institution rooted in community.</p><div class="rg"><span class="kicker">Contributions</span><ul><li class="ri leadership"><span class="ri-ic" aria-hidden="true">▲</span><span><b>Committee Reorganization</b><span>Led restructuring of board committees to improve organizational clarity and operational effectiveness</span></span></li><li class="ri leadership"><span class="ri-ic" aria-hidden="true">▲</span><span><b>Youth Stage Founder</b><span>Conceived and launched a dedicated Youth Stage, creating a pipeline for the next generation of traditional music performers and audiences</span></span></li><li class="ri leadership"><span class="ri-ic" aria-hidden="true">▲</span><span><b>Sustainability Programming</b><span>Initiated and implemented the festival&#x27;s first compost and recycling program, embedding regenerative practices into the event&#x27;s infrastructure</span></span></li></ul></div><div class="tags"><span>Board Leadership</span><span>Community</span><span>Youth Programming</span><span>Sustainability</span><span>Cultural Institutions</span></div></div></details><details class="tl leadership"><summary><span class="tl-dot" aria-hidden="true"></span><span class="tl-date">2021 to Present</span><span class="tl-title">SEGD: Society for Experiential Graphic Design</span><span class="tl-role">Sustainability Committee Founder &amp; Chair · Board Member · Juror Chair</span><span class="tl-desc">I champion sustainability, recognition, and design excellence across a global community of 2,200+ experiential designers in 36 countries.</span><span class="tl-toggle" aria-hidden="true"></span></summary><div class="tl-body"><p class="thread">The through-line: Not just designing experiences, but shaping the standards and sustainability frameworks that guide the entire discipline forward.</p><div class="rg"><span class="kicker">Leadership Roles</span><ul><li class="ri leadership"><span class="ri-ic" aria-hidden="true">▲</span><span><b>Sustainability Committee Chair (2024 to Present)</b><span>I founded and chair the committee · Driving sustainable design initiatives across the global SEGD community</span></span></li><li class="ri leadership"><span class="ri-ic" aria-hidden="true">▲</span><span><b>Achievement Award Chair &amp; Board Member (2024)</b><span>I chaired the selection process for SEGD&#x27;s highest honor in experiential design</span></span></li><li class="ri leadership"><span class="ri-ic" aria-hidden="true">▲</span><span><b>Juror Chair, Global Design Awards (2023)</b><span>I led the jury for SEGD&#x27;s highest recognition in experiential graphic design</span></span></li><li class="ri leadership"><span class="ri-ic" aria-hidden="true">▲</span><span><b>Global Design Awards Juror (2022)</b><span>I evaluated and judged the best in experiential design worldwide</span></span></li><li class="ri project"><span class="ri-ic" aria-hidden="true">◆</span><span><b>Conference Panelist (2021)</b><span>&quot;Meow Wolf: Spontaneity at Scale&quot;, SEGD Annual Conference</span></span></li></ul></div><div class="rg"><span class="kicker">Impact on the Global Design Awards</span><ul><li class="ri learning"><span class="ri-ic" aria-hidden="true">✦</span><span><b>Created the Life-Centered Design Award</b><span>I introduced a new award category recognizing design that centers ecological and human well-being</span></span></li><li class="ri learning"><span class="ri-ic" aria-hidden="true">✦</span><span><b>Sustainability Recognition &amp; Framework</b><span>I added sustainability criteria and recognition to the existing GDA awards program</span></span></li></ul></div><div class="tags"><span>Sustainability</span><span>Leadership</span><span>Life-Centered Design</span><span>Global Community</span><span>Awards</span><span>Speaking</span></div></div></details></div>
+      <p class="r-foot rv">The common threads and throughlines on my path weave a story of uplifting communities by creating bespoke experiences and sharing learnings through new lenses. To get there, I am constantly pushing my own learning and the overlaps and boundaries of what&#x27;s possible in storytelling, technology, and endless inspiration drawn from the natural world.</p>
+    </div>
+  </section>
+
+  <section class="block contact" id="contact" aria-labelledby="contact-h">
+    <div class="wrap contact-grid">
+      <div>
+        <span class="kicker">Contact</span>
+        <h2 id="contact-h" style="margin-top:.8rem"><span class="grad">Let's work</span><br><span class="grad2">together.</span></h2>
+        <p class="lead">Genell is always looking to collaborate through roles in experiential innovation and human-centered design.</p>
+        <ul class="links">
+          <li><a href="https://www.linkedin.com/in/genellzuciya" target="_blank" rel="noopener">LinkedIn <span>↗</span></a></li>
+          <li><a href="http://instagram.com/sfxgal" target="_blank" rel="noopener">Instagram <span>@sfxgal ↗</span></a></li>
+          <li><a href="https://www.facebook.com/genell.hoechstetter/" target="_blank" rel="noopener">Facebook <span>↗</span></a></li>
+          <li><a href="https://www.nexuslabspace.com" target="_blank" rel="noopener">Nexus Lab Space <span>Studio ↗</span></a></li>
+        </ul>
+      </div>
+      <form id="contact-form" action="https://formspree.io/f/xwvwlvkk" method="POST">
+        <label>Name<input name="name" autocomplete="name" required></label>
+        <label>Email<input name="email" type="email" autocomplete="email" required></label>
+        <label>Organization<input name="organization" autocomplete="organization"></label>
+        <label>Message<textarea name="message" required placeholder="Tell me about the project, the space, or the idea."></textarea></label>
+        <input type="hidden" name="_subject" value="New message from ilovephotons.com">
+        <input type="hidden" name="_next" value="https://www.ilovephotons.com/thanks.html">
+        <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-hot" type="submit">Send message</button>
+        <p class="kicker" id="form-status" role="status" style="color:var(--mute)"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Genell Zuciya · I Love Photons</span><a href="#top">Back to top ↑</a></div></footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <button class="btn lb-x" type="button" id="lb-x">Close ✕</button>
+  <figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
 </div>
+<div class="cur" id="cur" aria-hidden="true"></div><div class="cur-ring" id="curRing" aria-hidden="true"></div>
 
 <script>
+/* light-wave interference field: two sources plus the cursor, rendered at low resolution and scaled up for a soft glow */
 (function(){
+  var cv=document.getElementById('field'); if(!cv||!cv.getContext) return;
+  var hero=cv.parentNode, ctx=cv.getContext('2d'), off=document.createElement('canvas'), oc=off.getContext('2d');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W=0,H=0,w=0,h=0,img=null,dots=[],t=0,mx=-1,my=-1,ms=0,visible=true,raf=0,SCALE=5;
+  function size(){var r=hero.getBoundingClientRect(),d=Math.min(window.devicePixelRatio||1,2);W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
+    w=Math.max(40,Math.round(W/SCALE));h=Math.max(30,Math.round(H/SCALE));off.width=w;off.height=h;img=oc.createImageData(w,h);
+    dots=[];for(var i=0;i<Math.round(Math.min(150,W*H/9000));i++)dots.push({cx:W*(.15+Math.random()*.7),cy:H*(.1+Math.random()*.6),a:Math.random()*6.28,r:20+Math.random()*Math.min(W,H)*.38,s:(Math.random()>.5?1:-1)*(.002+Math.random()*.004),z:.8+Math.random()*1.3});}
+  function wave(x,y,sx,sy,tt,L){var d=Math.sqrt((x-sx)*(x-sx)+(y-sy)*(y-sy));return Math.sin(d/L*6.2832-tt)*Math.max(.2,1-d/(Math.max(w,h)*.8));}
+  hero.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;});
+  hero.addEventListener('pointerleave',function(){mx=-1;});
+  function draw(){
+    ms+=((mx>=0?1:0)-ms)*.05;
+    var L=62/SCALE, s1x=w*.34,s1y=h*.42,s2x=w*.66,s2y=h*.42,px=mx/SCALE,py=my/SCALE,D=img.data,k=0;
+    for(var y=0;y<h;y++)for(var x=0;x<w;x++,k+=4){
+      var p=(wave(x,y,s1x,s1y,t,L)+wave(x,y,s2x,s2y,t,L))*.5, q=ms>.01?wave(x,y,px,py,t*1.15,L)*ms:0;
+      var P=p*p*.85,Q=q*q, fade=1-Math.min(1,y/h*1.1), ph=(p+q*.6)*.9+t*.05+x/w*.35;
+      var cr=.5+.5*Math.cos(6.2832*(ph+.0)), cg=.5+.5*Math.cos(6.2832*(ph+.33)), cb=.5+.5*Math.cos(6.2832*(ph+.67)), I=Math.min(1,P*1.25+Q*.9);
+      D[k]=255*cr*I; D[k+1]=255*cg*I; D[k+2]=255*(.35+.65*cb)*I; D[k+3]=Math.min(255,(P*230+Q*190)*fade);
+    }
+    oc.putImageData(img,0,0);
+    ctx.clearRect(0,0,W,H); ctx.imageSmoothingEnabled=true; ctx.globalAlpha=1; ctx.drawImage(off,0,0,W,H); ctx.globalAlpha=1;
+    for(var i=0;i<dots.length;i++){var o=dots[i];o.a+=o.s;var X=o.cx+Math.cos(o.a)*o.r,Y=o.cy+Math.sin(o.a)*o.r*.8;
+      var g=(wave(X/SCALE,Y/SCALE,s1x,s1y,t,L)+wave(X/SCALE,Y/SCALE,s2x,s2y,t,L))*.5; if(g<.25) continue;
+      var near=mx>=0&&Math.abs(X-mx)<140&&Math.abs(Y-my)<140, c=near?'0,220,255':'57,255,20', b=.45+g*.55;
+      ctx.beginPath();ctx.arc(X,Y,o.z*5,0,6.2832);ctx.fillStyle='rgba('+c+','+(b*.08)+')';ctx.fill();
+      ctx.beginPath();ctx.arc(X,Y,o.z*(near?1.8:1),0,6.2832);ctx.fillStyle='rgba('+c+','+b+')';ctx.fill();}
+    if(ms>.05&&mx>=0){for(var r=1;r<=3;r++){ctx.beginPath();ctx.arc(mx,my,r*22+(t*36)%22,0,6.2832);ctx.strokeStyle='rgba(0,200,255,'+((1-r/4)*.28*ms)+')';ctx.lineWidth=1;ctx.stroke();}}
+  }
+  function loop(){raf=requestAnimationFrame(loop);if(!visible)return;t+=.02;draw();}
+  size(); if(reduce){t=1.2;draw();}else loop();
+  if('IntersectionObserver' in window)new IntersectionObserver(function(es){visible=es[0].isIntersecting;}).observe(hero);
+  var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){size();if(reduce)draw();},150);});
+})();
 
-  /* ── PHOTO TRAIN ── */
-  var PHOTOS = [
-    'https://px-web-images9.pixpa.com/H3PHrqNMfNBq-CMAF9KLXbMyA8vqWc3Ct8waoVShogI/rs:fit:1500:0/q:80/czM6Ly9waXhwYS10ZXN0L2NvbS9sYXJnZS85OTQ2MS8xNjA3OTIwMTQ1LTU5Mjk4NS1yYXZlbnMtcm9vZjEtMi5qcGVn',
-    'https://px-web-images1.pixpa.com/v_WW86kA3GsVNMQ7hxBdsc6j4OevpURTr6Zg_ywa4vU/rs:fit:1500:0/q:80/czM6Ly9waXhwYS10ZXN0L2NvbS9sYXJnZS85OTQ2MS8xNzI4OTU5NzAzLTkxNjI2MS02NmZiMWM4MWNmYmNkZGZmZDU4NmNhMzQta3R4LWFubm91bmNlLWNhbXBhaWduLXZlbi1hcnR1cm9vbG1vcy5qcGVn',
-    'https://px-web-images4.pixpa.com/fPtHBqRNgwupDLGN41cwystN2IpLNiJan6Cc1PXgzFs/rs:fit:1500:0/q:80/czM6Ly9waXhwYS10ZXN0L2NvbS9sYXJnZS85OTQ2MS8xNjA3OTIwMTI0LTU2MzY5My1pbWctMjY4NC5qcGc=',
-    'https://px-web-images2.pixpa.com/I7imUdH4VL0HKIz-P1aIWYLr35WExsTqpEYniuV7prQ/rs:fit:1500:0/q:80/czM6Ly9waXhwYS10ZXN0L2NvbS9sYXJnZS85OTQ2MS8xNjA3OTIwMDk0LTg0MDE0My1ueS1qZXRzMi1hZXJpYWwtc2hvdHMtb2YtbmV3LWplcnNleS5qcGc=',
-    'https://px-web-images4.pixpa.com/UHQY-B9MVbSXfQUnsnQ7A1LaGoTErGD-uYaZoixmf0I/rs:fit:1500:0/q:80/czM6Ly9waXhwYS10ZXN0L2NvbS9sYXJnZS85OTQ2MS8xNjA3OTIwMDgzLTQ2MTM2Ny1nZW5lbGwtbmVvbi5qcGc='
-  ];
+/* reduced motion: hold the logo's color roll still */
+(function(){var l=document.querySelector('.logo-svg');if(l&&l.pauseAnimations&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)l.pauseAnimations();})();
 
-  var train = document.getElementById('ilp-train');
-
-  // Build train — duplicate photos 3x so loop is seamless
-  var allPhotos = PHOTOS.concat(PHOTOS).concat(PHOTOS);
-  allPhotos.forEach(function(src){
-    var el  = document.createElement('div');
-    el.className = 'ilp-photo';
-    var img = document.createElement('img');
-    img.src = src;
-    img.onload = function(){ el.classList.add('loaded'); };
-    el.appendChild(img);
-    train.appendChild(el);
+/* specular glare: a highlight that tracks the pointer across reflective surfaces */
+(function(){
+  if(!window.matchMedia('(hover: hover)').matches) return;
+  [].forEach.call(document.querySelectorAll('.wc-hit,.mtile,.tl summary'),function(el){
+    var host=el.classList.contains('mtile')||el.classList.contains('wc-hit')?el:el.parentNode; host.classList.add('glare');
+    host.addEventListener('pointermove',function(e){var r=host.getBoundingClientRect();host.style.setProperty('--gx',(e.clientX-r.left)+'px');host.style.setProperty('--gy',(e.clientY-r.top)+'px');});
   });
+})();
 
-  // Scroll the train slowly left — loop seamlessly
-  var trainX = 0;
-  var PHOTO_W = 420 + 16; // width + gap
-  var setW = PHOTOS.length * PHOTO_W;
+/* work filter */
+(function(){
+  var chips=[].slice.call(document.querySelectorAll('.chip')), cards=[].slice.call(document.querySelectorAll('.wc')), chs=[].slice.call(document.querySelectorAll('.chapter'));
+  chips.forEach(function(b){b.addEventListener('click',function(){var f=b.getAttribute('data-f');
+    chips.forEach(function(c){var on=c===b;c.classList.toggle('on',on);c.setAttribute('aria-pressed',on?'true':'false');});
+    cards.forEach(function(c){c.hidden=!(f==='all'||c.getAttribute('data-cat')===f);});
+    chs.forEach(function(ch){var any=ch.querySelector('.wc:not([hidden])');ch.classList.toggle('is-out',!any);
+      [].forEach.call(ch.querySelectorAll('.feature'),function(ft){ft.hidden=!ft.querySelector('.wc:not([hidden])');});});
+  });});
+})();
 
-  function animateTrain(){
-    requestAnimationFrame(animateTrain);
-    trainX -= 0.4; // speed — lower = slower
-    if(Math.abs(trainX) >= setW) trainX = 0; // seamless loop
-    train.style.transform = 'translateX(' + trainX + 'px)';
-  }
-  animateTrain();
+/* photo viewer */
+(function(){
+  var lb=document.getElementById('lb'),im=document.getElementById('lb-img'),cap=document.getElementById('lb-cap'),x=document.getElementById('lb-x'),last=null;
+  function close(){lb.classList.remove('open');setTimeout(function(){lb.hidden=true;im.removeAttribute('src');},300);if(last)last.focus();}
+  [].forEach.call(document.querySelectorAll('button.wc-hit,button.mtile'),function(b){b.addEventListener('click',function(){last=b;
+    var src=b.getAttribute('data-full'), thumb=b.querySelector('img');
+    im.src=src; im.alt=thumb?thumb.alt:''; cap.textContent=b.getAttribute('data-cap'); lb.hidden=false; requestAnimationFrame(function(){lb.classList.add('open');}); x.focus();});});
+  x.addEventListener('click',close); lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close();});
+})();
 
-  /* ── INTERFERENCE CANVAS ── */
-  var canvas = document.getElementById('ilp-canvas');
-  if(!canvas) return;
-  var ctx = canvas.getContext('2d');
-  var W, H, raf, dots = [];
-  var mouseStrength = 0, t = 0;
-  var WL = 62, SPEED = 1.2, STEP = 7, NDOTS = 160;
-  var mx = -999, my = -999, hasMouse = false;
+/* reveal on scroll and active nav link */
+(function(){
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -10% 0px'});
+    [].forEach.call(document.querySelectorAll('.rv'),function(el){io.observe(el);});
+    var links={};[].forEach.call(document.querySelectorAll('.top nav a[href^="#"]'),function(a){links[a.getAttribute('href').slice(1)]=a;});
+    var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){for(var k in links)links[k].removeAttribute('aria-current');if(links[e.target.id])links[e.target.id].setAttribute('aria-current','true');}});},{rootMargin:'-45% 0px -50% 0px'});
+    ['work','about','resume','contact'].forEach(function(id){var el=document.getElementById(id);if(el)so.observe(el);});
+  } else [].forEach.call(document.querySelectorAll('.rv'),function(el){el.classList.add('in');});
+})();
 
-  function size(){
-    var h = canvas.parentElement;
-    W = canvas.width  = h ? h.offsetWidth  || window.innerWidth  : window.innerWidth;
-    H = canvas.height = h ? h.offsetHeight || window.innerHeight : window.innerHeight;
-  }
-
-  function wave(px, py, sx, sy, time){
-    var d = Math.sqrt((px-sx)*(px-sx)+(py-sy)*(py-sy));
-    var falloff = Math.max(0.2, 1 - d/(Math.max(W,H)*0.7));
-    return Math.sin(d/WL*Math.PI*2 - time) * falloff;
-  }
-
-  function initDots(){
-    dots = [];
-    for(var i=0;i<NDOTS;i++){
-      dots.push({
-        cx:W*(0.2+Math.random()*0.6), cy:H*(0.15+Math.random()*0.7),
-        angle:Math.random()*Math.PI*2,
-        r:15+Math.random()*Math.min(W,H)*0.36,
-        speed:(Math.random()>0.5?1:-1)*(0.003+Math.random()*0.005),
-        size:0.8+Math.random()*1.2,
-        phase:Math.random()*Math.PI*2
-      });
-    }
-  }
-
-  var hero = document.getElementById('ilp-hero');
-
-  function updateMouse(e){
-    var r = canvas.getBoundingClientRect();
-    mx = e.clientX - r.left;
-    my = e.clientY - r.top;
-    hasMouse = (mx >= 0 && mx <= W && my >= 0 && my <= H);
-  }
-
-  window.addEventListener('mousemove', updateMouse);
-  if(hero){
-    hero.addEventListener('mouseleave', function(){ hasMouse = false; });
-  }
-
-  function frame(){
-    raf = requestAnimationFrame(frame);
-    t += 0.006 * SPEED;
-    mouseStrength += ((hasMouse ? 1 : 0) - mouseStrength) * 0.04;
-
-    ctx.fillStyle = 'rgba(4,4,12,0.32)';
-    ctx.fillRect(0,0,W,H);
-
-    var s1 = {x:W*0.38, y:H*0.5}, s2 = {x:W*0.62, y:H*0.5};
-
-    for(var px=0; px<W; px+=STEP){
-      for(var py=0; py<H; py+=STEP){
-        var w1 = wave(px,py,s1.x,s1.y,t);
-        var w2 = wave(px,py,s2.x,s2.y,t);
-        var primary = (w1+w2)*0.5;
-        var secondary = 0;
-        if(mouseStrength > 0.01 && hasMouse){
-          secondary = wave(px,py,mx,my,t*1.15) * mouseStrength;
-        }
-        var total = primary*0.7 + secondary*0.5;
-        var intensity = total*total;
-        if(intensity < 0.1) continue;
-        var primI = primary*primary*0.7;
-        var secI  = secondary*secondary*mouseStrength;
-        var rr = Math.floor(120*primI + 0*secI);
-        var gg = Math.floor(30*primI  + 190*secI);
-        var bb = Math.floor(255*primI + 255*secI);
-        var aa = Math.min(0.55, intensity*0.38 + secI*0.25);
-        ctx.fillStyle = 'rgba('+rr+','+gg+','+bb+','+aa+')';
-        ctx.fillRect(px-STEP*0.5, py-STEP*0.5, STEP, STEP);
-      }
-    }
-
-    dots.forEach(function(d){
-      d.angle += d.speed;
-      var dpx = d.cx + Math.cos(d.angle)*d.r;
-      var dpy = d.cy + Math.sin(d.angle)*d.r*0.85;
-      if(dpx<0||dpx>W||dpy<0||dpy>H) return;
-      var dw1 = wave(dpx,dpy,s1.x,s1.y,t);
-      var dw2 = wave(dpx,dpy,s2.x,s2.y,t);
-      var sig = (dw1+dw2)*0.5;
-      if(sig < 0.25) return;
-      var mouseSig = mouseStrength>0.1 && hasMouse ? wave(dpx,dpy,mx,my,t*1.15)*mouseStrength : 0;
-      var isMouse = mouseSig > 0.4;
-      var brightness = 0.5 + sig*0.5;
-      var dotSize = d.size*(1+(isMouse?1.2:0));
-      ctx.beginPath(); ctx.arc(dpx,dpy,dotSize*5,0,Math.PI*2);
-      ctx.fillStyle = isMouse?'rgba(0,200,255,'+(brightness*0.09)+')':'rgba(57,255,20,'+(brightness*0.06)+')';
-      ctx.fill();
-      ctx.beginPath(); ctx.arc(dpx,dpy,dotSize,0,Math.PI*2);
-      ctx.fillStyle = isMouse?'rgba(0,230,255,'+brightness+')':'rgba(57,255,20,'+brightness+')';
-      ctx.fill();
-    });
-
-    if(hasMouse){
-      for(var ring=1;ring<=3;ring++){
-        var ringR = (ring*22)+((t*30*SPEED)%22);
-        var ringA = (1-ring/4)*0.25*mouseStrength;
-        ctx.beginPath(); ctx.arc(mx,my,ringR,0,Math.PI*2);
-        ctx.strokeStyle = 'rgba(0,200,255,'+ringA+')';
-        ctx.lineWidth=1; ctx.stroke();
-      }
-      ctx.beginPath(); ctx.arc(mx,my,3.5,0,Math.PI*2);
-      ctx.fillStyle='rgba(0,220,255,0.95)'; ctx.fill();
-      ctx.beginPath();
-      ctx.moveTo(mx-22,my); ctx.lineTo(mx-9,my);
-      ctx.moveTo(mx+9,my);  ctx.lineTo(mx+22,my);
-      ctx.moveTo(mx,my-22); ctx.lineTo(mx,my-9);
-      ctx.moveTo(mx,my+9);  ctx.lineTo(mx,my+22);
-      ctx.strokeStyle='rgba(0,190,255,0.45)'; ctx.lineWidth=0.8; ctx.stroke();
-    }
-  }
-
-  function boot(){
-    if(raf) cancelAnimationFrame(raf);
-    size(); initDots(); frame();
-  }
-
-  boot();
-  setTimeout(boot, 400);
-  setTimeout(boot, 900);
-  window.addEventListener('resize', boot);
-
-  /* Push hero below Pixpa nav so it never covers it */
-  function fixNavOverlap(){
-    var nav = document.querySelector('header') ||
-              document.querySelector('[class*="header"]') ||
-              document.querySelector('[class*="Header"]') ||
-              document.querySelector('nav');
-    var hero = document.getElementById('ilp-hero');
-    if(nav && hero){
-      var navH = nav.getBoundingClientRect().height;
-      if(navH > 0){
-        hero.style.marginTop = '0px';
-        /* Make canvas clip so it never bleeds up into nav */
-        var canvas = document.getElementById('ilp-canvas');
-        if(canvas) canvas.style.top = '0';
-      }
-    }
-  }
-  fixNavOverlap();
-  setTimeout(fixNavOverlap, 500);
-  setTimeout(fixNavOverlap, 1500);
-
+/* bullseye cursor: precise pointers only */
+(function(){
+  if(!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  var root=document.documentElement,cur=document.getElementById('cur'),ring=document.getElementById('curRing');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,cx=-100,cy=-100,rx=-100,ry=-100,on=false;
+  var HOT='a,button,summary,.chip,.wc-hit,.mtile';
+  document.addEventListener('mousemove',function(e){cx=e.clientX;cy=e.clientY;cur.style.transform='translate('+cx+'px,'+cy+'px) translate(-50%,-50%)';
+    if(!on){on=true;rx=cx;ry=cy;root.classList.add('has-cur');} root.classList.remove('cur-out');
+    var t=e.target; root.classList.toggle('cur-text',!!(t.closest&&t.closest('input,textarea')));
+    root.classList.toggle('cur-hover',!!(t.closest&&t.closest(HOT)));},{passive:true});
+  document.addEventListener('mouseleave',function(){root.classList.add('cur-out');});
+  (function loop(){var k=reduce?1:.14;rx+=(cx-rx)*k;ry+=(cy-ry)*k;ring.style.transform='translate('+rx+'px,'+ry+'px) translate(-50%,-50%)';requestAnimationFrame(loop);})();
 })();
 </script>
+</body>
+</html>
